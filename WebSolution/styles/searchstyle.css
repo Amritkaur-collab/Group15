@@ -1,0 +1,236 @@
+body
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+header
+{
+    text-align: center;
+    border: 1px solid black;
+
+}
+
+#filters
+{
+    width: 15%;
+    padding: 15px;
+    border: 1px solid black;
+    max-height: 600px;
+    min-height: 600px;
+    display: inline-block;
+}
+#filters h2
+{
+    text-align: center;
+}
+
+#filters ul
+{
+    padding:0px;
+}
+#filters li
+{
+    margin-bottom: 0px;
+    display: inline-table;
+    list-style: none;
+    width: 100%;
+    border: 1px solid black;
+}
+label
+{
+    float: left;
+    text-align: center;
+    padding-left: 5px;
+}
+input 
+{
+    float: right;
+}
+
+#dts-input
+{
+    float: none;
+    display: flex;   
+    justify-content: flex-end; 
+}
+
+#timefrom
+{
+    width: 100px;
+}
+
+#timeto
+{
+    width: 100px;
+}
+
+#machine-list
+{
+    list-style: none;
+    width: 100%;
+    max-height: 200px;
+    min-height: 200px;
+    padding-left: 0px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+#machine-list li
+{
+    border: 1px solid black;
+}
+
+#results-table
+{
+    width: 83.215%;
+    float: right;
+    max-height: 750px;
+    min-height: 750px;
+    overflow: scroll;
+    overflow-x: hidden;
+    border: 1px solid black;
+}
+#results-table table
+{
+    width: 100%;
+    border-collapse: collapse;
+}
+#tb-header
+{
+    border: 1px solid black;
+    background-color: rgb(196, 196, 196);
+    position: sticky; top: 0;
+}
+#results-table th, td, tr
+{
+    text-align: center;
+    border: 1px solid rgb(117, 117, 117);
+    padding: 5px;
+}
+#results-table #even
+{
+    background-color: rgb(228, 228, 228);
+}
+#results-table #odd
+{
+    background-color: rgb(255, 255, 255);
+}
+
+
+#dtswindow 
+{
+    margin: 0px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 350px;
+}
+#dts-header
+{
+    
+    padding: 0px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin: 0px;
+    border: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+    display:inline-block;
+}
+#ym-label
+{
+    margin: 0px;
+    text-align: center;
+}
+#prev
+{
+    margin: 0px;
+    position: absolute;
+    top: 0px;
+    left: 15%;
+}
+#next
+{
+    margin: 0px;
+    position: absolute;
+    top: 0px;
+    right: 15%;
+}
+#close
+{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#days-table td
+{
+    padding: 0;
+    height: 30px;
+    width: 30px;
+}
+
+#days-table button
+{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+#dts-time-label
+{
+    position: fixed;
+    bottom: 15%;
+    left: -30%;
+    text-align: center;
+    transform: translate(-50%, 0);
+}
+#time-input
+{
+    float: left;
+    position: fixed;
+    bottom: 15%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, 0);
+}
+
+#hour
+{
+    float: none;
+    width: 40px;
+    height: 20px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+#minutes
+{
+    float: none;
+    width: 40px;
+    height: 20px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+#set
+{
+    position: fixed;
+    bottom: 0%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
