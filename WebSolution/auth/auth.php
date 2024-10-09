@@ -1,4 +1,6 @@
 <?php
+// The login form should have this as its action
+// 
 
 authenticate();
 

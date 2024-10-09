@@ -12,8 +12,9 @@
         <input type = 'text' name = 'password'/>
         <input type = 'submit'/>
     </form>
+    
     <?php
-
+    // Displays any errors enountered by auth.php during login (invalid user or password)
     session_start();
     if(isset($_SESSION['error-msg']))
     {
@@ -21,7 +22,6 @@
         session_unset();
         session_destroy();
     }
-    
     ?>
     
 </body>

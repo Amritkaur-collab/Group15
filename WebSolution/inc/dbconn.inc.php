@@ -1,4 +1,5 @@
 <?php
+// Reused from the practicals for testing purposes.
 
 define("DB_HOST", "localhost");
 define("DB_NAME", "Websolution");
