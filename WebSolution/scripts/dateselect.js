@@ -38,14 +38,13 @@ function init()
 //Handles the opening and closing of the date/time select window, also sets the output location to the set element id (this must be text input)
 function buttonDTS(textInputId)
 {
-    output = document.getElementById(textInputId);
-
     if(isOpen)
     {
-        closeDTS();
+        //closeDTS();
     }
     else
     {
+        output = document.getElementById(textInputId);
         openDTS();
     }
 }

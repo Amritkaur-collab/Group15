@@ -12,6 +12,17 @@
         <input type = 'text' name = 'password'/>
         <input type = 'submit'/>
     </form>
+    <?php
+
+    session_start();
+    if(isset($_SESSION['error-msg']))
+    {
+        echo $_SESSION['error-msg'];
+        session_unset();
+        session_destroy();
+    }
+    
+    ?>
     
 </body>
 </html>

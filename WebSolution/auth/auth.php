@@ -17,33 +17,47 @@ function authenticate()
 
         if($result = mysqli_stmt_get_result($statement))
         {
-            $user = mysqli_fetch_assoc($result);
-
-            if(password_verify($_POST['password'], $user['password_hash']))
+            if(mysqli_num_rows($result) >= 1)
             {
-                session_start();
-                $_SESSION['user_id'] = $user['user_id'];
-                $_SESSION['first_name'] = $user['first_name'];
-                $_SESSION['last_name'] = $user['last_name'];
-                $_SESSION['user_type'] = $user['user_type'];
+                $user = mysqli_fetch_assoc($result);
 
-                header('Location: ../home.php');
+                if(password_verify($_POST['password'], $user['password_hash']))
+                {
+                    session_start();
+                    $_SESSION['exists'] = true;
+                    $_SESSION['user_id'] = $user['user_id'];
+                    $_SESSION['first_name'] = $user['first_name'];
+                    $_SESSION['last_name'] = $user['last_name'];
+                    $_SESSION['user_type'] = $user['user_type'];
+                    header('Location: ../home.php');
+                }
+                else
+                {
+                    passwordIncorrect();
+                }
             }
             else
             {
-                passwordIncorrect();
+                userNotFound();
             }
+
         }
+
     }
     mysqli_close($conn);
 }
 
 function userNotFound()
 {
-    
+    session_start();
+    $_SESSION['error-msg'] = "User not found";
+    header('Location: ../login.php');
+
 }
 function passwordIncorrect()
 {
-
+    session_start();
+    $_SESSION['error-msg'] = "Incorrect password";
+    header('Location: ../login.php');
 }
 ?>
