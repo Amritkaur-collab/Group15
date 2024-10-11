@@ -1,0 +1,10 @@
+INSERT INTO Machines VALUES ('CNC Machine');
+INSERT INTO Machines VALUES ('3D Printer');
+INSERT INTO Machines VALUES ('Industrial Robot');
+INSERT INTO Machines VALUES ('Automated Guided Vehicle (AGV)');
+INSERT INTO Machines VALUES ('Smart Conveyor System');
+INSERT INTO Machines VALUES ('IoT Sensor Hub');
+INSERT INTO Machines VALUES ('Predictive Maintenance System');
+INSERT INTO Machines VALUES ('Automated Assembly Line');
+INSERT INTO Machines VALUES ('Quality Control Scanner');
+INSERT INTO Machines VALUES ('Energy Management System');
