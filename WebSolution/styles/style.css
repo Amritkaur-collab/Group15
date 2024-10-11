@@ -1,1 +1,85 @@
+#login-background
+{
+    margin: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
 
+#login-box
+{
+    background-color: rgb(255, 255, 255);
+    width: 27%;
+    padding: 20px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    height: 45%;
+
+}
+
+#login-logo
+{
+    position: absolute;
+    transform: translate(-50%, -25%);
+    top: 0%;
+    left: 50%;
+}
+
+#login-form
+{
+    display: grid;
+    border: 1px black solid; 
+    padding: 10px;
+    position: absolute;
+    transform: translate(-50%);
+    bottom: 5%;
+    left: 50%;
+}
+
+#login-title
+{
+    position: absolute;
+    transform: translate(-50%);
+    top: -25%;
+    left: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#login-error-msg
+{
+    width: 100%;
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    text-align: center;
+    transform: translate(-50%);
+    bottom: -25%;
+    left: 50%;
+
+}
+
+#login-user-id, #login-password
+{
+    align-self: center;
+    width: 200px;
+    float: right;
+}
+
+label
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#login-submit
+{
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 35%;
+}

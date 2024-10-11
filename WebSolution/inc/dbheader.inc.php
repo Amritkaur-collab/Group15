@@ -21,5 +21,7 @@
             <?php
              echo "<img src='images/users/$_SESSION[user_id].png' id='dbheader-user-icon'/>";
             ?>
+
+            <a href='inc/signout.inc.php'><button>Sign Out</button></a>
     </div>
 </header>
