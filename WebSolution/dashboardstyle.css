@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+#file-upload {
+    margin: 20px;
+    text-align: center;
+}
+
+#metrics {
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#kpi-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.kpi {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #e7e7e7;
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+}
+
+#data-table {
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #35424a;
+    color: #ffffff;
+}
+#dbheader {
+    display: flex;
+    justify-content: space-between; /* Aligns the logo on the left and user info on the right */
+    align-items: center; /* Vertically centers items */
+    padding: 10px 20px; /* Adds some padding */
+    background-color: #f8f8f8; /* Light background color */
+    border-bottom: 1px solid #ddd; /* Adds a bottom border for separation */
+}
+
+#dbheader-info {
+    display: flex;
+    align-items: center; /* Vertically center the logo and company name */
+}
+
+#dbheader-icon {
+    width: 50px; /* Set width for logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Adds space between logo and company name */
+}
+
+#dbheader-user {
+    display: flex;
+    align-items: center; /* Vertically center the user info */
+}
+
+#dbheader-user-text {
+    margin-right: 10px; /* Adds space between text and icon */
+    text-align: right; /* Align text to the right */
+}
+
+#dbheader-name {
+    margin: 0; /* Removes default margin */
+    font-weight: bold; /* Bold user name */
+}
+
+#dbheader-role {
+    margin: 0; /* Removes default margin */
+    font-size: 0.9em; /* Slightly smaller font for role */
+}
+
+#dbheader-user-icon {
+    width: 40px; /* Set width for user profile icon */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Makes the image circular */
+}
