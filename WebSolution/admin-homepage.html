@@ -3,10 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Ryan James" content="Administrator Home Page">
+    <meta name="author" content="Ryan James">
     <title>Administrator Home Page</title>
+    <link rel="stylesheet" href="styles/adminstyle.css">
 </head>
 <body>
-    <h1>Admin Page</h1>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Management Dashboard</h1>
+        <div class="notifications">
+            <span>NOTIFICATIONS</span>
+            <div class="notification-bell"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <!-- Waiting to be Assigned -->
+        <div class="box" id="waiting-assigned">
+            <h2>Waiting to be Assigned</h2>
+            <table>
+                <tr>
+                    <th>Operator ID</th>
+                    <th>Job Number</th>
+                    <th>Received Date</th>
+                    <th>Submit</th>
+                </tr>
+                <tr>
+                    <td><div class="icon-box"></div></td>
+                    <td>16544</td>
+                    <td>25/08/2024</td>
+                    <td><div class="submit-box"></div></td>
+                </tr>
+                <tr>
+                    <td>517</td>
+                    <td>16543</td>
+                    <td>25/08/2024</td>
+                    <td><div class="submit-box"></div></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </table>
+        </div>
+
+        <!-- In Progress -->
+        <div class="box" id="in-progress">
+            <h2>In Progress</h2>
+            <table>
+                <tr>
+                    <th>Operator ID</th>
+                    <th>Job Number</th>
+                    <th>Progress</th>
+                </tr>
+                <tr>
+                    <td>321</td>
+                    <td>16539</td>
+                    <td><div class="progress-bar"></div></td>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>16538</td>
+                    <td><div class="progress-bar"></div></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </table>
+        </div>
+
+        <!-- Complete -->
+        <div class="box" id="complete">
+            <h2>Complete</h2>
+            <table>
+                <tr>
+                    <th>Operator ID</th>
+                    <th>Job Number</th>
+                    <th>Completion Date</th>
+                </tr>
+                <tr>
+                    <td>321</td>
+                    <td>16472</td>
+                    <td>10/07/2024</td>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>16471</td>
+                    <td>12/03/2024</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </table>
+        </div>
+
+        <!-- Active Users and Logout -->
+        <div class="footer">
+            <div class="active-users">
+                <span>Active Users</span>
+                <div class="user-count">3</div>
+            </div>
+            <div class="logout-button">
+                <button>Log Out</button>
+            </div>
+        </div>
+
+    </div>
+
 </body>
 </html>
