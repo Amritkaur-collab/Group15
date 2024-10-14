@@ -6,6 +6,18 @@ body
     padding: 0px;
     width: 100%;
 }
+#db-content
+{
+    display: flex;
+    max-height: 80vh;
+    min-height: 80vh;
+}
+#db-home
+{
+    border: 1px solid black;
+    width: 100%;
+    margin: 1px;
+}
 h1
 {
     width: 100%;
@@ -14,6 +26,10 @@ h1
     display: block;
     margin: 1px;
     font-family: Arial, Helvetica, sans-serif;
+}
+h2
+{
+    text-align: center;
 }
 label
 {
@@ -425,4 +441,31 @@ footer
     left: 50%;
     text-align: center;
     transform: translate(-50%, -50%);
+}
+
+#avg-productivity
+{
+    float: inline-end;
+    margin: 1px;
+    border: 1px solid black;
+}
+canvas
+{
+    margin-top: 0%;
+
+}
+#graph-input
+{
+    width: 50%;
+
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+#submit
+{
+    margin-top: 5px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
 }
