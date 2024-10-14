@@ -8,14 +8,8 @@
     <link rel="stylesheet" href="styles/adminstyle.css">
 </head>
 <body>
-
-    <div class="header">
-        <h1>Management Dashboard</h1>
-        <div class="notifications">
-            <span>NOTIFICATIONS</span>
-            <div class="notification-bell"></div>
-        </div>
-    </div>
+    <?php require_once "inc/dbheader.inc.php"; ?>
+    <?php require_once "inc/dbsidebar.inc.php"; ?>\
 
     <div class="container">
         
@@ -95,7 +89,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
 
 </body>
 <script src="myscripts.js"></script>
