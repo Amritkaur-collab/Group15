@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Smart Manufacturing Dashboard: Advanced Search</title>
-    <link rel="stylesheet" href="styles/searchstyle.css" />
+    <link rel="stylesheet" href="styles/style.css" />
     <?php require_once "auth/sessioncheck.php";?>
+    <?php require_once "auth/permissioncheck.php";
+        requireRole(array('Administrator', 'Auditor'));
+    ?>
 </head>
 <body>
-    <?php require_once "inc/dbsidebar.inc.php"; ?>
     <?php require_once "inc/dbheader.inc.php"; ?>
+    <?php require_once "inc/dbsidebar.inc.php"; ?>
+    
     <?php require_once "inc/dateselect.inc.php"; ?>
 
     <div id = "pagetitle">
