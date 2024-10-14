@@ -29,6 +29,16 @@ CREATE TABLE MachineLogs
     FOREIGN KEY (machine_name) REFERENCES Machines (machine_name) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+CREATE TABLE Users
+(
+    user_id  CHAR(20),
+    password_hash  CHAR(60), 
+    first_name  CHAR(30),
+    last_name  CHAR(30),
+    user_type  CHAR(30),
+    PRIMARY KEY (user_id)
+);
+
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON Websolution.Machines TO dbadmin@localhost;
 GRANT all privileges ON Websolution.MachineLogs TO dbadmin@localhost;

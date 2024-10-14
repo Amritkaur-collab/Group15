@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <title>Smart Manufacturing Dashboard: Advanced Search</title>
     <link rel="stylesheet" href="styles/searchstyle.css" />
+    <?php require_once "auth/sessioncheck.php";?>
 </head>
 <body>
+    <?php require_once "inc/dbsidebar.inc.php"; ?>
+    <?php require_once "inc/dbheader.inc.php"; ?>
     <?php require_once "inc/dateselect.inc.php"; ?>
-    <header>
-    <h1>Advanced Search</h1>
-    </header>
 
-    <section id = "filters">
+    <div id = "pagetitle">
+        <h1>Advanced Search</h1>
+    </div>
+
+    <div id = 'searchpage'>
+
+    <div id = "filters">
         <form action="" method="POST">
         <h2>Filters</h2>
         <ul>
             <li><h3>Date & Time</h3></li>
             <?php
-
             $timefrom = ""; if(isset($_POST["timefrom"])) $timefrom = $_POST["timefrom"]; 
             $timeto = ""; if(isset($_POST["timeto"])) $timeto = $_POST["timeto"]; 
             $errorcode = ""; if(isset($_POST["error-code"])) $errorcode = $_POST["error-code"]; 
@@ -48,10 +53,9 @@
             <input id ="submit" type = "submit" value = "Apply">
         </ul>
         </form>
-    </section>
+    </div>
 
-
-    <section id = "results-table">
+    <div id = "results-table">
         <table>
             <tr id = "tb-header">
                 <th>Timestamp</th>
@@ -69,10 +73,10 @@
             </tr>
             <?php require_once "search/results.search.php"; ?>
         </table>
-    </section>
-
+    </div>
+    </div>
     <footer>
-
+        <p>Dashboard Footer</p>
     </footer>
 </body>
 </html>
