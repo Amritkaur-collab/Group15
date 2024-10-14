@@ -6,21 +6,22 @@
     <meta name="author" content="Ryan James">
     <title>Administrator Home Page</title>
     <link rel="stylesheet" href="styles/adminstyle.css">
+    <script src="scripts/column-sorting.js"></script>
 </head>
 <body>
     <?php require_once "inc/dbheader.inc.php"; ?>
-    <?php require_once "inc/dbsidebar.inc.php"; ?>\
+    <?php require_once "inc/dbsidebar.inc.php"; ?>
 
     <div class="container">
         
         <div class="box" id="waiting-assigned">
             <h2>Waiting to be Assigned</h2>
-            <table>
+            <table id="sortedTable0">
                 <tr>
-                    <th>Operator ID</th>
-                    <th>Job Number</th>
-                    <th>Received Date</th>
-                    <th>Submit</th>
+                    <th onclick="sortTable(0)">Operator ID</th>
+                    <th onclick="sortTable(0)">Job Number</th>
+                    <th onclick="sortTable(0, true)">Received Date</th>
+                    <th onclick="sortTable(0)">Submit</th>
                 </tr>
                 <tr>
                     <td><div class="icon-box"></div></td>
@@ -39,11 +40,11 @@
 
         <div class="box" id="in-progress">
             <h2>In Progress</h2>
-            <table>
+            <table id="sortedTable1">
                 <tr>
-                    <th>Operator ID</th>
-                    <th>Job Number</th>
-                    <th>Progress</th>
+                    <th onclick="sortTable(1)">Operator ID</th>
+                    <th onclick="sortTable(1)">Job Number</th>
+                    <th onclick="sortTable(1)">Progress</th>
                 </tr>
                 <tr>
                     <td>321</td>
@@ -60,11 +61,11 @@
 
         <div class="box" id="complete">
             <h2>Complete</h2>
-            <table>
+            <table id="sortedTable2">
                 <tr>
-                    <th>Operator ID</th>
-                    <th>Job Number</th>
-                    <th>Completion Date</th>
+                    <th onclick="sortTable(2)">Operator ID</th>
+                    <th onclick="sortTable(2)">Job Number</th>
+                    <th onclick="sortTable(2, true)">Completion Date</th>
                 </tr>
                 <tr>
                     <td>321</td>
@@ -89,8 +90,7 @@
             </div>
         </div>
 
-    </div> -->
+    </div>
 
 </body>
-<script src="myscripts.js"></script>
 </html>

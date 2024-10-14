@@ -74,6 +74,10 @@ th, td {
     text-align: left;
 }
 
+th {
+    cursor: pointer;
+}
+
 .icon-box, .submit-box {
     width: 20px;
     height: 20px;
