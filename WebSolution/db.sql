@@ -8,6 +8,9 @@ USE Websolution;
 CREATE TABLE Machines
 (
     machine_name        CHAR(45) NOT NULL,
+    machine_location    CHAR(100),      -- New column, allows NULL
+    date_acquired       DATE,           -- New column, allows NULL
+    serial_number       CHAR(30),       -- New column, allows NULL
     PRIMARY KEY (machine_name)
 );
 
@@ -23,10 +26,20 @@ CREATE TABLE MachineLogs
     operational_status  CHAR(20),
     error_code          CHAR(4),
     production_count    INTEGER,
-    maintenance_log     varchar(200),
+    maintenance_log     VARCHAR(200),
     speed               DECIMAL(5,2),
     PRIMARY KEY (timestamp, machine_name),
     FOREIGN KEY (machine_name) REFERENCES Machines (machine_name) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE jobs (
+    job_id INT AUTO_INCREMENT PRIMARY KEY,
+    job_name VARCHAR(255) NOT NULL,
+    job_duration INT NOT NULL,  -- Duration in minutes
+    machine_name VARCHAR(255),
+    FOREIGN KEY (machine_name) REFERENCES Machines(machine_name)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE Users
@@ -42,6 +55,4 @@ CREATE TABLE Users
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON Websolution.Machines TO dbadmin@localhost;
 GRANT all privileges ON Websolution.MachineLogs TO dbadmin@localhost;
-
-
 
