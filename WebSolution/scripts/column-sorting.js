@@ -16,7 +16,7 @@ function sortTable(n, isDateColumn = false) {
         y = rows[i + 1].getElementsByTagName("TD")[n];
   
         if (isDateColumn) {
-          // Convert the string to Date objects
+          // date comparison
           let dateX = new Date(x.innerHTML);
           let dateY = new Date(y.innerHTML);
   
@@ -32,7 +32,7 @@ function sortTable(n, isDateColumn = false) {
             }
           }
         } else {
-          // Regular string comparison
+          // string comparison
           if (dir === "asc") {
             if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
               shouldSwitch = true;
