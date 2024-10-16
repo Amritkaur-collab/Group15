@@ -544,12 +544,19 @@ canvas
     color: red;
 }
 
+
+
 #machine-view-window
 {
     border: 1px solid black;
     width: 100%;
     margin: 1px;
     display: flex;
+}
+
+#machine-view-window h2
+{
+    width: 100px;
 }
 
 .machine-view-graph 
@@ -560,6 +567,8 @@ canvas
     padding: 1px;
     padding-right: 3px;
     width: 600px;
+    position: relative;
+    bottom: 0px;
 }
 
 .machine-view-graph canvas
@@ -569,6 +578,7 @@ canvas
 }
 .machine-view-graph-column
 {
+    padding-top: 2.9%;
     display: block;
     float: left;
 }
@@ -584,6 +594,7 @@ canvas
 {
     text-align: center;
     font-size: 20px;
+    width: 100%;
 
 }
 
@@ -611,10 +622,17 @@ canvas
 
 #machine-view-job-table
 {
-    
     border: 1px solid black;
     overflow: scroll;
     overflow-x: hidden;
     height: 38.5%;
     margin: 2px;
+}
+
+#machine-view-status
+{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translate(-45%, -10%);
 }

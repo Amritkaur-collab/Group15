@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Group 15" />
     <link rel="stylesheet" href="styles/style.css" />
-    <title>Document</title>
+    <title>Machine View</title>
     <?php
     require_once "auth/sessioncheck.php";
 
@@ -39,7 +40,10 @@
     <div id="db-content">
         <div id="machine-view-window">
 
-            <h2>Status - <?php echo $status ?></h2>
+            <div id = 'machine-view-status'>
+            <h2>Status -</h2> 
+            <h2 class = 'machine-status-<?php echo $status?>'><?php echo $status ?></h2>
+            </div>
 
             <div class='machine-view-graph-column'>
 
@@ -158,10 +162,10 @@
                 <?php
                 createGraph("db-machine-view-productivity", 'blue', 'production_count', $timestamps[0], $timestamps[1], $machine, $c);
                 createGraph("db-machine-view-powerconsumption", 'green', 'power_consumption', $timestamps[0], $timestamps[1], $machine, $c);
-                createGraph("db-machine-view-temp", 'green', 'temperature', $timestamps[0], $timestamps[1], $machine, $c);
-                createGraph("db-machine-view-humidity", 'green', 'humidity', $timestamps[0], $timestamps[1], $machine, $c);
-                createGraph("db-machine-view-vibration", 'green', 'vibration', $timestamps[0], $timestamps[1], $machine, $c);
-                createGraph("db-machine-view-speed", 'green', 'speed', $timestamps[0], $timestamps[1], $machine, $c);
+                createGraph("db-machine-view-temp", 'red', 'temperature', $timestamps[0], $timestamps[1], $machine, $c);
+                createGraph("db-machine-view-humidity", 'black', 'humidity', $timestamps[0], $timestamps[1], $machine, $c);
+                createGraph("db-machine-view-vibration", 'black', 'vibration', $timestamps[0], $timestamps[1], $machine, $c);
+                createGraph("db-machine-view-speed", 'black', 'speed', $timestamps[0], $timestamps[1], $machine, $c);
                 ?>
             </script>
         </div>
