@@ -1,0 +1,73 @@
+h1 {
+    text-align: center;
+    border: 1px solid black;
+    margin: 20px 0; 
+}
+
+h2 {
+    text-align: center;
+}
+
+table {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+table th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.submit-button {
+    margin-top: auto;
+    background-color:green;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    align-self: center;
+}
+
+footer {
+    height: 35px;
+    width: 100%;
+    position: fixed;
+    margin-bottom: 0%;
+    text-align: center;
+    border: 1px solid black;
+    bottom: 0;
+}
+
+/* Side Bar */
+#dbsidebar
+{
+    float: left;
+}
+#dbsidebar button
+{
+    margin: 1px;
+    height: 75px;
+    width: 75px;
+    background-color: rgb(255, 255, 255);
+    border: 1px grey solid;
+}
+#dbsidebar button:hover
+{
+    background-color: rgb(240, 240, 240);
+}
+#dbsidebar a.current button
+{
+    background-color: rgb(189, 189, 189);
+    border: 2px black solid;
+}
+

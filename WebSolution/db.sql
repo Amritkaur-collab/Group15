@@ -5,13 +5,13 @@ CREATE DATABASE Websolution;
 
 USE Websolution;
 
-CREATE TABLE Machines
+CREATE TABLE machines
 (
     machine_name        CHAR(45) NOT NULL,
     PRIMARY KEY (machine_name)
 );
 
-CREATE TABLE MachineLogs
+CREATE TABLE machineLogs
 (
     timestamp           TIMESTAMP NOT NULL,
     machine_name        CHAR(45) NOT NULL,
@@ -26,10 +26,10 @@ CREATE TABLE MachineLogs
     maintenance_log     varchar(200),
     speed               DECIMAL(5,2),
     PRIMARY KEY (timestamp, machine_name),
-    FOREIGN KEY (machine_name) REFERENCES Machines (machine_name) ON UPDATE CASCADE ON DELETE CASCADE
+    FOREIGN KEY (machine_name) REFERENCES machines (machine_name) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE TABLE Users
+CREATE TABLE users
 (
     user_id  CHAR(20),
     password_hash  CHAR(60), 
@@ -39,9 +39,21 @@ CREATE TABLE Users
     PRIMARY KEY (user_id)
 );
 
+
+CREATE TABLE jobs
+(
+    job_id CHAR(20),
+    user_id CHAR(20),
+    machine CHAR(30),
+    job_desc CHAR(250),
+    PRIMARY KEY (job_id)
+);
+
 CREATE user IF NOT EXISTS dbadmin@localhost;
-GRANT all privileges ON Websolution.Machines TO dbadmin@localhost;
-GRANT all privileges ON Websolution.MachineLogs TO dbadmin@localhost;
+GRANT all privileges ON Websolution.machines TO dbadmin@localhost;
+GRANT all privileges ON Websolution.machineLogs TO dbadmin@localhost;
+GRANT all privileges ON Websolution.users TO dbadmin@localhost;
+GRANT all privileges ON Websolution.jobs TO dbadmin@localhost;
 
 
 
