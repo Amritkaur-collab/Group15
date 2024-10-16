@@ -19,11 +19,13 @@ if (isset($_POST['timefrom']) && isset($_POST['timeto'])) {
 
     <form action="" method="POST">
         <div id='graph-input'>
-            <input id="timefrom" type="text" name="timefrom" required value="<?php echo $timestamps[0]?>" />
+            <input id="timefrom" type="text" name="timefrom" required value="<?php echo $timestamps[0]?>">
             <button id="timefrom-open" type="button" onclick="buttonDTS('timefrom')">O</button>
+            </input>
             -
-            <input id="timeto" type="text" name="timeto" required value="<?php echo $timestamps[1]?>" />
+            <input id="timeto" type="text" name="timeto" required value="<?php echo $timestamps[1]?>">
             <button id="timeto-open" type="button" onclick="buttonDTS('timeto')">O</button>
+            </input>
             <br /><input id="submit" type="submit" value="Apply">
         </div>
     </form>

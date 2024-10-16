@@ -226,8 +226,10 @@ footer
 }
 #searchpage
 {
+    border: 1px solid black;
     display: flex;
-    height: 100%;
+    width: 100%;
+    margin: 1px;
 }
 #filters
 {
@@ -237,9 +239,6 @@ footer
     padding-bottom: 0px;
     padding-top: 0px;
     border: 1px solid black;
-    height: 80vh;
-    display: block;
-
 }
 #filters h2
 {
@@ -251,63 +250,106 @@ footer
 }
 #filters li
 {
+    margin: 1px;
     margin-bottom: 0px;
-    display: inline-table;
     list-style: none;
     width: 100%;
     border: 1px solid black;
+    float: right;
 }
-#filters label
+
+#filters h3
 {
-    float: left;
     text-align: center;
-    padding-left: 5px;
 }
-#filters input 
+
+.machine-checkbox
 {
     float: right;
 }
 
-#dts-input
+#search-filter-dts
 {
-    float: none;
-    display: flex;   
-    justify-content: flex-end; 
+    border: 1px solid black;
+    display: block;
+    height: 110px;
+    width: 100%;
+
 }
 
-#timefrom
+#search-filter-misc
 {
-    width: 100px;
+    height: 50px;
 }
 
-#timeto
+.search-filter input
 {
-    width: 100px;
+    margin: 1px;
+    width: 65%;
+    float: right;
+    height: 100%;
 }
+
+.search-filter label
+{
+    float: left;
+    padding: 1px;
+}
+
+.search-filter button
+{
+    float: right;
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+}
+
+#search-filter-machines
+{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+
+.search-filter 
+{
+    position: relative;
+    border: 1px solid black;
+    float: left;
+    width: 100%;
+}
+
+
+
+
 #machine-list
 {
     list-style: none;
     width: 100%;
-    max-height: 200px;
-    min-height: 200px;
-    padding-left: 0px;
+    max-height: 300px;
+    min-height: 300px;
+    padding-left: 5px;
     overflow: scroll;
     overflow-x: hidden;
+    border: 1px solid black;
 }
 #machine-list li
 {
     border: 1px solid black;
+    float: left;
+    width: 97%;
+    padding: 1px;
 }
+
 #results-table
 {
     margin: 1px;
     width: 100%;
     float: right;
-    max-height: 80vh;
-    min-height: 80vh;
     overflow: scroll;
     overflow-x: hidden;
     border: 1px solid black;
+
 }
 #results-table table
 {
@@ -350,7 +392,6 @@ footer
 }
 #dts-header
 {
-    
     padding: 0px;
     padding-top: 1px;
     padding-bottom: 1px;
@@ -456,12 +497,15 @@ canvas
 }
 #graph-input
 {
-    width: 50%;
+    display: inline-block;
 
     position: relative;
-    left: 50%;
+
+
+    right: -50%;
     transform: translate(-50%);
 }
+
 #submit
 {
     margin-top: 5px;
