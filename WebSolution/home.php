@@ -65,6 +65,7 @@
                         <tr>
                             <td>$row[machine_name]</td>
                             <td class = 'machine-status-$row[operational_status]'>$row[operational_status]</td>
+                            <td class = 'machine-status-$row[operational_status]'><a href = 'machineview.php?machine=$row[machine_name]'><button>View</button></a></td>
                         </tr>";
                     }
                     mysqli_free_result($result);
@@ -73,6 +74,7 @@
         ?>
 
     </table>
+    
 
 
         <?php require_once "inc/avgproductivitygraph.inc.php";?>
@@ -82,7 +84,6 @@
     
     </div>
 
-    <?php require_once "inc/machineview.inc.php";?>
 
 
     <footer>
