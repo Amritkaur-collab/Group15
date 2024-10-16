@@ -9,6 +9,10 @@
     <script src="scripts/column-sorting.js"></script>
 </head>
 <body>
+    <?php require_once "auth/sessioncheck.php"; ?>
+    <?php require_once "auth/permissioncheck.php"; 
+        requireRole(array('Administrator', 'Auditor'));
+    ?>
     <?php require_once "inc/dbheader.inc.php"; ?>
     <?php require_once "inc/dbsidebar.inc.php"; ?>
 
