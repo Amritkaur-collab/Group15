@@ -82,7 +82,7 @@
     
     </div>
 
-
+    <?php require_once "inc/machineview.inc.php";?>
 
 
     <footer>

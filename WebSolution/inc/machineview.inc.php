@@ -1,6 +1,6 @@
+<div id="machine-view-window">
 <?php 
-    require_once "../dbfunctions.php";
-    require_once "dbconn.inc.php";
+
 
 
     $c = $conn;
@@ -32,9 +32,10 @@
 <script type="module">
     import {
         drawLineGraph
-    } from "../scripts/dbgraph.js";
+    } from "./scripts/dbgraph.js";
 <?php
 createGraph("db-machine-view-productivity",'blue', 'production_count', $timestamps[0], $timestamps[1], $machine, $c);
 createGraph("db-machine-view-powerconsumption",'green', 'power_consumption', $timestamps[0], $timestamps[1], $machine, $c);
 ?>
 </script>
+</div>
