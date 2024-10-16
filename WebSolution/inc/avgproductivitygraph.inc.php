@@ -1,9 +1,4 @@
 <?php
-require_once "dbfunctions.php";
-require_once "inc/dbconn.inc.php";
-require_once "inc/dateselect.inc.php";
-$c = $conn;
-
 $timestamps = ['', ''];
 if (isset($_POST['timefrom']) && isset($_POST['timeto'])) {
     $timestamps[0] = $_POST['timefrom'];
@@ -12,7 +7,6 @@ if (isset($_POST['timefrom']) && isset($_POST['timeto'])) {
     $timestamps = getMostRecentTimestamps($c, 6, 'CNC Machine');
 }
 ?>
-
 
 <div id="avg-productivity">
     <h2>Average Productivity</h2>
@@ -31,7 +25,6 @@ if (isset($_POST['timefrom']) && isset($_POST['timeto'])) {
     </form>
     <canvas id="avg_productivity" width="600" height="300"></canvas>
 </div>
-
 
 
 <script type="module">
