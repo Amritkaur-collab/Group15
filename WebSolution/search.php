@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Smart Manufacturing Dashboard: Advanced Search</title>
+    <meta name="author" content="Group 15" />
     <link rel="stylesheet" href="styles/style.css" />
     <?php require_once "auth/sessioncheck.php"; ?>
     <?php require_once "auth/permissioncheck.php";
