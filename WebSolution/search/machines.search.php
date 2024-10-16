@@ -11,7 +11,7 @@
                     $count = 0;
                     while($row = mysqli_fetch_assoc($result))
                     {
-                        echo "<li>$row[machine_name] <input id = \"machine$count\" type=\"checkbox\" name = \"machine[$count]\" value = \"$row[machine_name]\"";
+                        echo "<li>$row[machine_name] <input class = 'machine-checkbox' id = \"machine$count\" type=\"checkbox\" name = \"machine[$count]\" value = \"$row[machine_name]\"";
                         if(isset($_POST["machine"]))
                         {
                             foreach($_POST["machine"] as &$value)
