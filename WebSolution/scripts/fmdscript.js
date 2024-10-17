@@ -1,94 +1,49 @@
 let machines = [];
-let editMode = false; // Track if we're in edit mode
-let currentEditIndex = null; // Store the index of the machine being edited
+let machineCounter = 1
+let jobs = [];
 
-function fetchMachines() {
-    fetch('fetch_machines.php') // You will create this PHP script next
-        .then(response => response.json())
-        .then(data => {
-            machines = data; // Set the machines array to the fetched data
-            updateMachineTable(); // Update the displayed table
-        })
-        .catch(error => console.error('Error fetching machines:', error));
-}
-
-function addMachine() {
+function addOrUpdateMachine() {
     const machineName = document.getElementById("machine-name").value;
     const machineLocation = document.getElementById("machine-location").value;
     const machineDate = document.getElementById("machine-date").value;
-    const machineSerial = document.getElementById("machine-serial").value;
 
-    if (!machineName) {
-        alert("Please provide a machine name");
+    if (!machineName || !machineLocation || !machineDate) {
+        alert("Please fill in all fields");
         return;
     }
 
-    const machineData = {
-        machine_name: machineName,
-        machine_location: machineLocation || null,
-        date_acquired: machineDate || null,
-        serial_number: machineSerial || null
+    const machineId = "M-" + machineCounter++;
+    
+    const newMachine = {
+        id: machineId,
+        name: machineName,
+        location: machineLocation,
+        dateAcquired: machineDate
     };
 
-    if (editMode) {
-        // Update existing machine
-        fetch('edit_machine.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(machineData),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                console.log(`Updated machine: ${JSON.stringify(machineData)}`);
-                fetchMachines(); // Refresh the machine list
-            } else {
-                console.error('Error updating machine:', data.message);
-            }
-            editMode = false; // Reset edit mode
-            currentEditIndex = null; // Reset current edit index
-        });
-    } else {
-        // Add new machine
-        fetch('add_machine.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(machineData),
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Handle success
-        })
-        .catch(error => console.error('Fetch error:', error)); // Log any fetch errors
-        
-    }
+    machines.push(newMachine);
 
-    resetForm();
+    updateMachineTable();
+    
+    document.getElementById("machine-name").value = "";
+    document.getElementById("machine-location").value = "";
+    document.getElementById("machine-date").value = "";
 }
 
 function updateMachineTable() {
     const machineTableBody = document.getElementById("machine-table").querySelector("tbody");
     machineTableBody.innerHTML = ""; // Clear the table
 
-    machines.forEach((machine) => {
+    machines.forEach(machine => {
         const row = document.createElement("tr");
+
         row.innerHTML = `
-            <td>${machine.machine_name}</td>
-            <td>${machine.machine_location || ""}</td>
-            <td>${machine.date_acquired || ""}</td>
-            <td>${machine.serial_number || ""}</td>
+            <td>${machine.id}</td>
+            <td>${machine.name}</td>
+            <td>${machine.location}</td>
+            <td>${machine.dateAcquired}</td>
             <td>
-                <button onclick="editMachine('${machine.machine_name}')">Edit</button>
-                <button onclick="removeMachine('${machine.machine_name}')">Remove</button>
+                <button onclick="removeMachine('${machine.id}')">Remove</button>
             </td>
         `;
 
@@ -96,198 +51,54 @@ function updateMachineTable() {
     });
 }
 
-function editMachine(machineName) {
-    const machine = machines.find(m => m.machine_name === machineName);
-    if (machine) {
-        document.getElementById("machine-name").value = machine.machine_name;
-        document.getElementById("machine-location").value = machine.machine_location || "";
-        document.getElementById("machine-date").value = machine.date_acquired || "";
-        document.getElementById("machine-serial").value = machine.serial_number || "";
+function removeMachine(machineId) {
+    machines = machines.filter(machine => machine.id !== machineId);
+    updateMachineTable();
+}
 
-        editMode = true; // Set edit mode
-        currentEditIndex = machines.findIndex(m => m.machine_name === machineName); // Store the index of the machine being edited
+  function addOrUpdateJob() {
+    const jobId = document.getElementById('job-id').value;
+    const jobName = document.getElementById('job-name').value;
+    const assignedMachine = document.getElementById('assigned-machine').value;
+  
+    if (!jobId || !jobName || !assignedMachine) {
+      alert('Job ID, Name, and Machine assignment are required.');
+      return;
     }
-}
-
-function removeMachine(machineName) {
-    const confirmed = confirm(`Are you sure you want to remove ${machineName}?`);
-    if (confirmed) {
-        const machineData = { machine_name: machineName };
-
-        fetch('remove_machine.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(machineData),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                // Remove the machine from the local array
-                machines = machines.filter(m => m.machine_name !== machineName);
-                updateMachineTable(); // Update the displayed table
-                console.log(`Removed machine: ${machineName}`);
-            } else {
-                console.error('Error removing machine:', data.message);
-            }
-        });
-    }
-}
-
-function resetForm() {
-    document.getElementById("machine-name").value = "";
-    document.getElementById("machine-location").value = "";
-    document.getElementById("machine-date").value = "";
-    document.getElementById("machine-serial").value = "";
-    editMode = false;
-    currentEditIndex = null;
-}
-
-// Call fetchMachines to load data when the page loads
-window.onload = fetchMachines;
-
-
-let jobs = [];
-let editJobMode = false; // Track if we're in edit mode for jobs
-let currentEditJobIndex = null; // Store the index of the job being edited
-
-function fetchJobs() {
-    fetch('fetch_jobs.php') // Ensure you create this PHP script to fetch jobs
-        .then(response => response.json())
-        .then(data => {
-            jobs = data; // Set the jobs array to the fetched data
-            updateJobTable(); // Update the displayed table
-        })
-        .catch(error => console.error('Error fetching jobs:', error));
-}
-
-function addJob() {
-    const jobName = document.getElementById("job-name").value;
-    const jobDuration = document.getElementById("job-duration").value;
-    const machineId = document.getElementById("machine-select").value;
-
-    if (!jobName || !jobDuration || !machineId) {
-        alert("Please provide job name, duration, and assigned machine.");
-        return;
-    }
-
-    const jobData = {
-        job_name: jobName,
-        job_duration: jobDuration,
-        machine_id: machineId
-    };
-
-    if (editJobMode) {
-        // Update existing job
-        const jobId = jobs[currentEditJobIndex].job_id; // Get the job ID of the current job being edited
-        fetch('edit_job.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ job_id: jobId, ...jobData }), // Include job ID in the request
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                console.log(`Updated job: ${JSON.stringify(jobData)}`);
-                fetchJobs(); // Refresh the job list
-            } else {
-                console.error('Error updating job:', data.message);
-            }
-            resetJobForm(); // Reset the form after editing
-        })
-        .catch(error => console.error('Fetch error:', error));
+  
+    const existingJob = jobs.find(job => job.id === jobId);
+    if (existingJob) {
+      existingJob.name = jobName;
+      existingJob.machine = assignedMachine;
     } else {
-        // Add new job
-        fetch('add_job.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(jobData),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                console.log(`Added job: ${JSON.stringify(jobData)}`);
-                fetchJobs(); // Refresh the job list
-            } else {
-                console.error('Error adding job:', data.message);
-            }
-        })
-        .catch(error => console.error('Fetch error:', error));
+      jobs.push({ id: jobId, name: jobName, machine: assignedMachine });
     }
+  
+    refreshJobTable();
+  }
 
-    resetJobForm();
-}
-
-function updateJobTable() {
-    const jobTableBody = document.getElementById("job-table").querySelector("tbody");
-    jobTableBody.innerHTML = ""; // Clear the table
-
-    jobs.forEach((job) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${job.job_id}</td>
-            <td>${job.job_name}</td>
-            <td>${job.assigned_machine}</td>
-            <td>
-                <button onclick="editJob(${job.job_id})">Edit</button>
-                <button onclick="removeJob(${job.job_id})">Remove</button>
-            </td>
-        `;
-
-        jobTableBody.appendChild(row);
+  function refreshJobTable() {
+    const jobTableBody = document.querySelector('#job-table tbody');
+    jobTableBody.innerHTML = ''; 
+  
+    jobs.forEach(job => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${job.id}</td>
+        <td>${job.name}</td>
+        <td>${job.machine}</td>
+        <td><button onclick="deleteJob('${job.id}')">Delete</button></td>
+      `;
+      jobTableBody.appendChild(row);
     });
-}
+  }
 
-function editJob(jobId) {
-    const job = jobs.find(j => j.job_id === jobId);
-    if (job) {
-        document.getElementById("job-name").value = job.job_name;
-        document.getElementById("job-duration").value = job.job_duration;
-        document.getElementById("machine-select").value = job.machine_id; // Update machine select
-
-        editJobMode = true; // Set edit mode
-        currentEditJobIndex = jobs.findIndex(j => j.job_id === jobId); // Store the index of the job being edited
-    }
-}
-
-function removeJob(jobId) {
-    const confirmed = confirm(`Are you sure you want to remove job ID ${jobId}?`);
-    if (confirmed) {
-        fetch('remove_job.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ job_id: jobId }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                jobs = jobs.filter(job => job.job_id !== jobId); // Remove from local jobs array
-                updateJobTable(); // Update the displayed table
-                console.log(`Removed job ID: ${jobId}`);
-            } else {
-                console.error('Error removing job:', data.message);
-            }
-        });
-    }
-}
-
-function resetJobForm() {
-    document.getElementById("job-name").value = "";
-    document.getElementById("job-duration").value = "";
-    document.getElementById("machine-select").value = ""; // Reset machine selection
-    editJobMode = false; // Reset edit mode
-    currentEditJobIndex = null; // Reset current edit index
-}
-
-// Call fetchJobs to load data when the page loads
-window.onload = function() {
-    fetchMachines(); // Load machines for machine dropdown
-    fetchJobs(); // Load jobs for the jobs table
-};
+  function deleteMachine(id) {
+    machines = machines.filter(machine => machine.id !== id);
+    refreshMachineTable();
+  }
+  
+  function deleteJob(id) {
+    jobs = jobs.filter(job => job.id !== id);
+    refreshJobTable();
+  }
