@@ -31,7 +31,11 @@ function authenticate()
                     $_SESSION['first_name'] = $user['first_name'];
                     $_SESSION['last_name'] = $user['last_name'];
                     $_SESSION['user_type'] = $user['user_type'];
-                    header('Location: ../home.php');
+                    if ($_SESSION['user_type'] === 'Production Operator') {
+                        header('Location: ../po_dashboard.php'); // Redirect to production operator dashboard
+                    } else {
+                        header('Location: ../home.php'); // Redirect to a general home page for other roles
+                    }
                 }
                 else
                 {
