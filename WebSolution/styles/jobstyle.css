@@ -3,13 +3,11 @@ body {
     padding: 0px;
 }
 
-h1
-{
-    width: 100%;
-    border: 1px black solid;
+h1 {
     text-align: center;
-    display: block;
-    margin: 0px;
+    border: 1px solid black;
+    font-family: sans-serif;
+
 }
 
 .job-form {
@@ -22,7 +20,7 @@ h1
     font-family: sans-serif;
 }
 
-.jobs-table {
+#job-table {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
@@ -30,15 +28,7 @@ h1
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-family: sans-serif;
-}
-
-.jobs-table h3 {
-text-align: center;
-}
-
-#job-table th {
-  padding: 15px;
-
+  display: inline-bloc;
 }
 
 label {
@@ -55,7 +45,7 @@ input, select {
     margin-bottom: 12px;
   }
   
-.job-button {
+button {
     padding: 10px;
     background-color: #0056b3;
     color: white;
@@ -64,91 +54,25 @@ input, select {
     border-radius: 4px;
   }
 
-  .job-button:hover {
+  button:hover {
     background-color: #00408e;
   }
 
-  #pagetitle
-  {
-      height: 40px;
-      display: flex;
-  }
-  
-  footer
-{
-    height: 65px;
-    width: 100%;
+.top-left-button {
     position: absolute;
-    bottom: 0;
+    top: 20px;
+    left: 20px;
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px;
     text-align: center;
-    border: 1px solid black;
+    text-decoration: none; 
+    font-size: 16px;
+    border-radius: 5px; 
+    transition: background-color 0.3s ease;
 }
 
-#dbheader
-{
-    margin: 0px;
-    text-align: left;
-    border: 1px solid black;
-    height: 75px;
-    width: 100%;
-}
-#dbheader-info
-{
-    display: flex;
-}
-#dbheader-icon
-{
-    margin-left: 10px;
-    max-width: 75px;
-    min-width: 75px;
-    max-height: 75px;
-    min-height: 75px;
-}
-#dbheader-info p
-{
-    padding-left: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-}
 
-#dbheader-user
-{
-    display: flex;
-    position: absolute;
-    top: 0;
-    right: 0;
+.top-left-button:hover {
+    background-color: #45a049; 
 }
-
-#dbheader-user-text
-{
-    display: inline;
-}
-
-#dbheader-user-icon
-{
-    margin-left: 10px;
-    border: 1px solid black;
-    max-width: 75px;
-    min-width: 75px;
-    max-height: 75px;
-    min-height: 75px;
-}
-
-#dbsidebar
-{
-    border: 1px black solid;
-    float: left;
-    display: block;
-}
-#dbsidebar-button
-{
-    margin: none;
-    min-height: 75px;
-    min-width: 75px;
-}
-
-#searchpage
-{
-    display: flex;
-}
-

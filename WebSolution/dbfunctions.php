@@ -15,7 +15,7 @@ function getMachineLogValue($valueType, $timestamp, $machine, $c)
     if ($result = mysqli_stmt_get_result($statement)) {
         if (mysqli_num_rows($result) >= 1) {
             $value = mysqli_fetch_assoc($result);
-            return $value[$valueType];
+            echo $value[$valueType];
 
             mysqli_free_result($result);
         }
