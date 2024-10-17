@@ -1,14 +1,10 @@
-<?php
-require_once "inc/dbconn.inc.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="../WebSolution/styles/style.css" />
     <title>Login</title>
 </head>
 
@@ -19,7 +15,7 @@ require_once "inc/dbconn.inc.php";
 
             <img id='login-logo' src='images/dashboard/login/logo.png' id='dbheader-icon' />
 
-            <form id='login-form' action="auth/auth.php" method="POST">
+            <form id='login-form' action="../WebSolution/auth/auth.php" method="POST">
                 <p id = 'login-title'>Sign In</p>
 
                 <label for='login-user-id'>User</label>
