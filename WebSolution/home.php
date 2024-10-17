@@ -14,11 +14,13 @@
     <?php require_once "inc/dbheader.inc.php"; ?>
     <p>User Session Test</p>
 
+    
+
     <?php
-    echo $_SESSION['user_id'] . '<br/>';
-    echo $_SESSION['first_name'] . ' ';
-    echo $_SESSION['last_name'] . '<br/>';
-    echo $_SESSION['user_type'] . '<br/>';
+        echo $_SESSION['user_id'] . '<br/>';
+        echo $_SESSION['first_name'] . ' ';
+        echo $_SESSION['last_name'] . '<br/>';
+        echo $_SESSION['user_type'] . '<br/>';
     ?>
     <footer>
         <p>Dashboard Footer</p>

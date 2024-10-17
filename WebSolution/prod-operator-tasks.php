@@ -6,13 +6,15 @@
     <meta name="author" content="Group 15" />
     <meta name="description" content="Assign roles, jobs and machines to operators " />
     <title>Operator Tasks - Roles, Jobs, Machines</title>
-    <link rel="stylesheet" href="ci.css">
+    <link rel="stylesheet" href="styles/ci.css">
 
    <!--Assign roles/machines/jobs to specific Production Operators-->
 
 </head>
 <body>
-        <?php require_once "dbsidebar.inc.php"; ?>
+        <?php require_once "inc/dbsidebar.inc.php"; ?>
+        
+
   
         <h1>Operator Tasks-Jobs, Roles, Machines</h1>
 
