@@ -5,7 +5,6 @@ body
     margin: 0px;
     padding: 0px;
     width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
 }
 #db-content
 {
@@ -15,7 +14,6 @@ body
 }
 #db-home
 {
-    display: flex;
     border: 1px solid black;
     width: 100%;
     margin: 1px;
@@ -143,6 +141,36 @@ footer
     background-size: 85px 85px;
 }
 
+#dbsidebar-updatemachine{
+    background-image: url("../images/dashboard/sidebar/machine.png");
+
+    background-position: center; 
+    background-size: 85px 85px;
+}
+#dbsidebar-updatejobs{
+    background-image: url("../images/dashboard/sidebar/job.png");
+
+    background-position: center; 
+    background-size: 85px 85px;
+}
+#dbsidebar-tasknotes{
+    background-image: url("../images/dashboard/sidebar/tasknote.png");
+
+    background-position: center; 
+    background-size: 85px 85px;
+}
+#dbsidebar-print{
+    background-image: url("../images/dashboard/sidebar/print.png");
+
+    background-position: center; 
+    background-size: 85px 85px;
+}
+#dbsidebar-settings{
+    background-image: url("../images/dashboard/sidebar/setting.png");
+
+    background-position: center; 
+    background-size: 85px 85px;
+}
 
 /* Login Page  */
 
@@ -228,10 +256,8 @@ footer
 }
 #searchpage
 {
-    border: 1px solid black;
     display: flex;
-    width: 100%;
-    margin: 1px;
+    height: 100%;
 }
 #filters
 {
@@ -241,6 +267,9 @@ footer
     padding-bottom: 0px;
     padding-top: 0px;
     border: 1px solid black;
+    height: 80vh;
+    display: block;
+
 }
 #filters h2
 {
@@ -252,106 +281,63 @@ footer
 }
 #filters li
 {
-    margin: 1px;
     margin-bottom: 0px;
+    display: inline-table;
     list-style: none;
     width: 100%;
     border: 1px solid black;
-    float: right;
 }
-
-#filters h3
+#filters label
 {
+    float: left;
     text-align: center;
+    padding-left: 5px;
 }
-
-.machine-checkbox
+#filters input 
 {
     float: right;
 }
 
-#search-filter-dts
+#dts-input
 {
-    border: 1px solid black;
-    display: block;
-    height: 110px;
-    width: 100%;
-
+    float: none;
+    display: flex;   
+    justify-content: flex-end; 
 }
 
-#search-filter-misc
+#timefrom
 {
-    height: 50px;
+    width: 100px;
 }
 
-.search-filter input
+#timeto
 {
-    margin: 1px;
-    width: 65%;
-    float: right;
-    height: 100%;
+    width: 100px;
 }
-
-.search-filter label
-{
-    float: left;
-    padding: 1px;
-}
-
-.search-filter button
-{
-    float: right;
-    position: absolute;
-    bottom: 1px;
-    right: 1px;
-}
-
-#search-filter-machines
-{
-    border: 1px solid black;
-    padding: 5px;
-}
-
-
-.search-filter 
-{
-    position: relative;
-    border: 1px solid black;
-    float: left;
-    width: 100%;
-}
-
-
-
-
 #machine-list
 {
     list-style: none;
     width: 100%;
-    max-height: 300px;
-    min-height: 300px;
-    padding-left: 5px;
+    max-height: 200px;
+    min-height: 200px;
+    padding-left: 0px;
     overflow: scroll;
     overflow-x: hidden;
-    border: 1px solid black;
 }
 #machine-list li
 {
     border: 1px solid black;
-    float: left;
-    width: 97%;
-    padding: 1px;
 }
-
 #results-table
 {
     margin: 1px;
     width: 100%;
     float: right;
+    max-height: 80vh;
+    min-height: 80vh;
     overflow: scroll;
     overflow-x: hidden;
     border: 1px solid black;
-
 }
 #results-table table
 {
@@ -362,8 +348,7 @@ footer
 {
     border: 1px solid black;
     background-color: rgb(196, 196, 196);
-    position: sticky; 
-    top: 0;
+    position: sticky; top: 0;
 }
 #results-table th, td, tr
 {
@@ -395,6 +380,7 @@ footer
 }
 #dts-header
 {
+    
     padding: 0px;
     padding-top: 1px;
     padding-bottom: 1px;
@@ -489,9 +475,7 @@ footer
 
 #avg-productivity
 {
-    position: absolute;
-    right: 2px;
-    float: right;
+    float: inline-end;
     margin: 1px;
     border: 1px solid black;
 }
@@ -502,15 +486,12 @@ canvas
 }
 #graph-input
 {
-    display: inline-block;
+    width: 50%;
 
     position: relative;
-
-
-    right: -50%;
+    left: 50%;
     transform: translate(-50%);
 }
-
 #submit
 {
     margin-top: 5px;
@@ -519,120 +500,414 @@ canvas
     transform: translate(-50%);
 }
 
-#db-home-machine-list
-{
-    border: 1px solid black;
-    margin: 1px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    border-collapse: collapse;
+/*Updatemachine page*/
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    
 }
 
-
-
-.machine-status-active
-{
-    color: green;
-}
-
-.machine-status-idle
-{
-    color: rgb(255, 166, 0);
-}
-.machine-status-maintenance
-{
-    color: red;
-}
-
-
-
-#machine-view-window
-{
-    border: 1px solid black;
-    width: 100%;
-    margin: 1px;
+#pagetitle {
+    height: 40px;
     display: flex;
 }
 
-#machine-view-window h2
-{
-    width: 100px;
+h1 {
+    width: 100%;
+    border: 1px black solid;
+    text-align: center;
+    display: block;
+    margin: 0px;
 }
 
-.machine-view-graph 
+footer
 {
-    display: block;
+    height: 65px;
+    width: 100%;
+    margin-bottom: 0%;
+    text-align: center;
     border: 1px solid black;
-    margin: 2px;
-    padding: 1px;
-    padding-right: 3px;
-    width: 600px;
-    position: relative;
-    bottom: 0px;
 }
 
-.machine-view-graph canvas
-{
-
-
+#dbheader {
+    margin: 0px;
+    text-align: left;
+    border: 1px solid black;
+    height: 75px;
+    width: 100%;
 }
-.machine-view-graph-column
-{
-    padding-top: 2.9%;
-    display: block;
+
+#dbheader-info {
+    display: flex;
+}
+
+#dbheader-icon {
+    margin-left: 10px;
+    max-width: 75px;
+    min-width: 75px;
+    max-height: 75px;
+    min-height: 75px;
+}
+
+#dbheader-info p {
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+#dbheader-user {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#dbheader-user-text {
+    display: inline;
+}
+
+#dbheader-user-icon {
+    margin-left: 10px;
+    border: 1px solid black;
+    max-width: 75px;
+    min-width: 75px;
+    max-height: 75px;
+    min-height: 75px;
+}
+
+#dbsidebar {
+    border: 1px black solid;
     float: left;
+    display: block;
 }
 
-.machine-view-graph-column
-{
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-
+#dbsidebar-button {
+    margin: none;
+    min-height: 75px;
+    min-width: 75px;
 }
-.machine-view-table-column
+#updatepage
 {
+    display: flex;
+}
+#update-machine-page {
+    display: flex;
+    flex: 1;
+    justify-content: space-between; /* Space between the form and updates */
+    height: fit-content;  /* Subtract header and footer heights */
+    overflow: hidden; /* Prevent scrolling */
+}
+
+#filters
+{
+    width: 40%;
+    padding: 15px;
+    border: 1px solid black;
+    display: inline-block;
+    margin: auto;
+}
+
+#filters h2 {
     text-align: center;
-    font-size: 20px;
+}
+
+#filters ul {
+    padding: 0px;
+}
+
+#filters li {
+    margin-bottom: 30px;
+    padding: 5px;
+    display: inline-table;
+    list-style: none;
     width: 100%;
-
+    border: 1px solid black;
 }
 
-.machine-view-table-column table
-{
+label {
+    float: left;
+    text-align: center;
+    padding-left: 5px;
+}
+
+input {
+    float: right;
+}
+
+#machine-list {
+    list-style: none;
+    width: 100%;
+    max-height: 200px;
+    padding-left: 15px;
+    overflow-y: auto; /* Allow scrolling within the list if necessary */
+    overflow-x: hidden;
+}
+
+#machine-list li {
+    border: 1px solid black;
+}
+
+#machine-form {
+    width: 35%;
+    padding: 50px;
+    border: 1px solid black;
+    max-height: fit-content; /* Adjusted to full height */
+    display: inline-block;
+    box-sizing: border-box; 
+}
+
+
+#machine-form h2 {
+    text-align: center;
+}
+
+#machine-form label {
+    display: block;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+
+#machine-form input {
+    width: calc(100% - 10px);
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+#latest-machine-updates {
+    width: 55%;
+    padding: 15px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    max-height: 100%; /* Adjusted to full height */
+    overflow-y: auto; /* Allow scrolling for long content */
+    display: inline-block; /* Ensures it's displayed next to the form */
+    margin-top: 0px; /* Moves the box higher */
+    margin-bottom: 300px;
+}
+
+
+#latest-machine-updates h2 {
+    text-align: center;
+}
+
+#latest-machine-updates table {
+    width: 100%; /* Full width of the parent div */
+    border-collapse: collapse; /* Combine borders of table cells */
+}
+
+#latest-machine-updates th,
+#latest-machine-updates td {
+    text-align: center;
+    border: 1px solid rgb(117, 117, 117); /* Border for cells */
+    padding: 5px;
+}
+
+#latest-machine-updates #even {
+    background-color: rgb(228, 228, 228);
+}
+
+#latest-machine-updates #odd {
+    background-color: rgb(255, 255, 255);
+}
+
+#submit {
+    display: block;
+    margin-left: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: auto;
+    position: static;
+}
+
+#results-table {
+    width: 100%;
+    float: right;
+    max-height: 750px;
+    overflow: hidden; /* Prevent overflow */
+    border: 1px solid black;
+}
+
+#results-table table {
+    width: 100%;
     border-collapse: collapse;
-    width: 100%;
 }
 
-.machine-view-table-column thead
-{
+#tb-header {
+    border: 1px solid black;
     background-color: rgb(196, 196, 196);
-    position: sticky; 
+    position: sticky;
     top: 0;
 }
 
-#machine-view-log-table
-{
-    border: 1px solid black;
-    overflow: scroll;
-    overflow-x: hidden;
-    max-height: 60%;
-    margin: 2px;
+#results-table th,
+td,
+tr {
+    text-align: center;
+    border: 1px solid rgb(117, 117, 117);
+    padding: 5px;
 }
 
-#machine-view-job-table
-{
-    border: 1px solid black;
-    overflow: scroll;
-    overflow-x: hidden;
-    height: 38.5%;
-    margin: 2px;
+#results-table #even {
+    background-color: rgb(228, 228, 228);
 }
 
-#machine-view-status
+#results-table #odd {
+    background-color: rgb(255, 255, 255);
+}
+
+
+/*style*/
+/* General */
+
+body
+{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+#db-content
 {
     display: flex;
+    max-height: 80vh;
+    min-height: 80vh;
+}
+#db-home
+{
+    border: 1px solid black;
+    width: 100%;
+    margin: 1px;
+}
+h1
+{
+    width: 100%;
+    border: 1px black solid;
+    text-align: center;
+    display: block;
+    margin: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h2
+{
+    text-align: center;
+}
+label
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+footer
+{
+    font-family: Arial, Helvetica, sans-serif;
+    height: 5.4vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    border-top: 1px solid black;
+}
+
+/* Header */
+#dbheader
+{
+    text-align: left;
+    border-bottom: 1px solid black;
+    border-top: none;
+    height: 75px;
+    width: 100%;
+}
+#dbheader-info
+{
+    display: flex;
+}
+#dbheader-icon
+{
+    margin-left: 10px;
+    max-width: 75px;
+    min-width: 75px;
+    max-height: 75px;
+    min-height: 75px;
+}
+#dbheader-info p
+{
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+#dbheader-user
+{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
     position: absolute;
-    left: 50%;
-    transform: translate(-45%, -10%);
+    top: 1px;
+    right: 1px;
+    border: 1px solid black;
+    height: 70px;
+    margin: 1px;
+}
+
+#dbheader-user-text
+{
+    margin: 1px;
+    transform: translate(0%, -5px);
+}
+
+#dbheader-user-icon
+{
+    margin: 1px;
+    margin-left: 10px;
+    border: 1px solid black;
+    width: 65px;
+    height: 65px;
+}
+
+/* Side Bar */
+#dbsidebar
+{
+    float: left;
+}
+#dbsidebar button
+{
+    margin: 1px;
+    height: 75px;
+    width: 75px;
+    background-color: rgb(255, 255, 255);
+    border: 1px grey solid;
+}
+#dbsidebar button:hover
+{
+    background-color: rgb(240, 240, 240);
+}
+#dbsidebar a.current button
+{
+    background-color: rgb(189, 189, 189);
+    border: 2px black solid;
+}
+
+#dbsidebar-home
+{
+    background-image: url("../images/dashboard/sidebar/home.svg");
+
+    background-position: center; 
+    background-size: 85px 85px;
+}
+
+#dbsidebar-search
+{
+    background-image: url("../images/dashboard/sidebar/search.svg");
+
+    background-position: center; 
+    background-size: 85px 85px;
+}
+
+#dbsidebar-updatemachine{
+    background-image: url("../images/dashboard/sidebar/machine.png");
+
+    background-position: center; 
+    background-size: 85px 85px;
 }
