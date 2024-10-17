@@ -27,7 +27,8 @@ export function drawLineGraph(points, canvasId, color)
     const canvas = document.getElementById(canvasId);
     const ctx = canvas.getContext("2d");
 
-    if(points.length <= 0)
+
+    if(points.length <= 0 || isNaN(points[0][1]))
     {
         ctx.fillStyle = 'black';
         ctx.font = "20px Arial";

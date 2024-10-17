@@ -15,13 +15,12 @@ CREATE TABLE Machines
 /* Production operators need to be able to assign different statuses to machines (eg. "Under maintenance, awaiting parts"). I believe the best way to do this is to have a note system where the most recent note on a machine is shown (note history can also be viewed) */
 CREATE TABLE MachineNotes
 (
-    timestamp           TIMESTAMP NOT NULL,
-    machine_name        CHAR(45) NOT NULL,
-    user_id             INT NOT NULL,
-    user_name           CHAR(45) NOT NULL,
-    content             varchar(255) NOT NULL,
+    timestamp           CHAR NOT NULL,
+    machine_name        CHAR NOT NULL,
+    user_id             CHAR NOT NULL,
+    content             varchar NOT NULL,
     PRIMARY KEY (timestamp, machine_name, user_id),
-    FOREIGN KEY (machine_name) REFERENCES Machines (machine_name) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (machine_name) REFERENCES Machine (machine_name) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES Users (user_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -90,7 +89,6 @@ CREATE TABLE Messages
     FOREIGN KEY (sender) REFERENCES Users (user_id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (recipient) REFERENCES Users (user_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
-
 
 
 
