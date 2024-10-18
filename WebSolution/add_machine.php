@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require_once 'C:\xampp\htdocs\Group15\WebSolution\inc\dbconn.inc.php'; // Include your database connection
+include 'inc\dbconn.inc.php'; // Include your database connection
 
 // Get the JSON input
 $data = json_decode(file_get_contents('php://input'), true);

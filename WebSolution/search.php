@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <title>Smart Manufacturing Dashboard: Advanced Search</title>
     <meta name="author" content="Group 15" />
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/commonelements.css" />
+    <link rel="stylesheet" href="styles/search.css" />
     <?php require_once "auth/sessioncheck.php"; ?>
     <?php require_once "auth/permissioncheck.php";
-    requireRole(array('Administrator', 'Auditor'));
+    requireRole(array('Administrator', 'Auditor', 'Factory Manager'));
     ?>
 </head>
 

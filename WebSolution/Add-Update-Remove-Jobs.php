@@ -19,7 +19,7 @@
     }
 
     // Include the database connection
-    require_once 'C:\xampp\htdocs\Group15\WebSolution\inc\dbconn.inc.php';
+    include 'inc\dbconn.inc.php';
 
     // Fetch machines for the dropdown
     $machineQuery = "SELECT machine_name FROM Machines"; // Adjusted query to fetch machine_name
@@ -27,25 +27,15 @@
     ?>
 </head>
 <body>
-    <?php require_once "inc/dbsidebar.inc.php"; ?>
     <?php require_once "inc/dbheader.inc.php"; ?>
+    <?php require_once "inc/dbsidebar.inc.php"; ?>
 
-<<<<<<< Updated upstream
-    <h1>Manage Jobs</h1> <!-- This heading will not be included in the colored section -->
-
-    <!-- Start of section with background color -->
-    <div class="colored-section">
-        <div class="container">
-            <div class="machine-form">
-                <h3>Add or Update Job</h3>
-=======
     <h1>Manage Jobs</h1>
 
     <div class="colored-section">
         <div class="container">
             <div class="machine-form">
                 <h3>Add Jobs</h3>
->>>>>>> Stashed changes
                 <label for="job-name">Job Name:</label>
                 <input type="text" id="job-name" required>
 
@@ -81,13 +71,5 @@
             </div>
         </div>
     </div>
-<<<<<<< Updated upstream
-
-    <script>
-        // Add your JavaScript functions here (e.g., addJob, fetchJobs, updateJob, removeJob)
-        // Ensure that you create corresponding PHP files to handle job operations.
-    </script>
-=======
->>>>>>> Stashed changes
 </body>
 </html>

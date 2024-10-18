@@ -33,10 +33,7 @@ h2
 {
     text-align: center;
 }
-label
-{
-    font-family: Arial, Helvetica, sans-serif;
-}
+
 footer
 {
     font-family: Arial, Helvetica, sans-serif;
@@ -116,6 +113,8 @@ footer
     width: 75px;
     background-color: rgb(255, 255, 255);
     border: 1px grey solid;
+    background-position: center; 
+    background-size: 85px 85px;
 }
 #dbsidebar button:hover
 {
@@ -130,17 +129,21 @@ footer
 #dbsidebar-home
 {
     background-image: url("../images/dashboard/sidebar/home.svg");
-
-    background-position: center; 
-    background-size: 85px 85px;
 }
 
 #dbsidebar-search
 {
     background-image: url("../images/dashboard/sidebar/search.svg");
+}
 
-    background-position: center; 
-    background-size: 85px 85px;
+#dbsidebar-manage-machines
+{
+    background-image: url("../images/dashboard/sidebar/search.svg");
+}
+
+#dbsidebar-manage-jobs
+{
+    background-image: url("../images/dashboard/sidebar/search.svg");
 }
 
 
@@ -498,7 +501,6 @@ footer
 canvas
 {
     margin-top: 0%;
-
 }
 #graph-input
 {
