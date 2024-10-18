@@ -55,6 +55,9 @@ CREATE TABLE Users
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON Websolution.Machines TO dbadmin@localhost;
 GRANT all privileges ON Websolution.MachineLogs TO dbadmin@localhost;
+<<<<<<< Updated upstream
 GRANT all privileges ON Websolution.Users TO dbadmin@localhost;
 
+=======
+>>>>>>> Stashed changes
 

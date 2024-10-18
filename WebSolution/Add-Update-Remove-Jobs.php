@@ -7,7 +7,8 @@
     <meta name="description" content="Add-Update-Remove-Jobs" />
     <title>Manage Jobs</title>
     <link rel="stylesheet" href="styles/jobstyle.css" />
-    <script defer src="scripts/fmdscript.js"></script>
+    <script defer src="scripts/job_script.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
     <?php
     // Check if the user has a valid session
     session_start();
@@ -29,6 +30,7 @@
     <?php require_once "inc/dbsidebar.inc.php"; ?>
     <?php require_once "inc/dbheader.inc.php"; ?>
 
+<<<<<<< Updated upstream
     <h1>Manage Jobs</h1> <!-- This heading will not be included in the colored section -->
 
     <!-- Start of section with background color -->
@@ -36,6 +38,14 @@
         <div class="container">
             <div class="machine-form">
                 <h3>Add or Update Job</h3>
+=======
+    <h1>Manage Jobs</h1>
+
+    <div class="colored-section">
+        <div class="container">
+            <div class="machine-form">
+                <h3>Add Jobs</h3>
+>>>>>>> Stashed changes
                 <label for="job-name">Job Name:</label>
                 <input type="text" id="job-name" required>
 
@@ -71,10 +81,13 @@
             </div>
         </div>
     </div>
+<<<<<<< Updated upstream
 
     <script>
         // Add your JavaScript functions here (e.g., addJob, fetchJobs, updateJob, removeJob)
         // Ensure that you create corresponding PHP files to handle job operations.
     </script>
+=======
+>>>>>>> Stashed changes
 </body>
 </html>

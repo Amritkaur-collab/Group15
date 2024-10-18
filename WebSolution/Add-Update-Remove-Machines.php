@@ -7,6 +7,10 @@
     <meta name="description" content="Add-Update-Remove-Jobs/Machines" />
     <title>Manage Machines</title>
     <link rel="stylesheet" href="styles/machinestyle.css">
+<<<<<<< Updated upstream
+=======
+    <link rel="stylesheet" href="styles/style.css">
+>>>>>>> Stashed changes
     <?php
     session_start();
     if(!isset($_SESSION['exists'])) {
@@ -16,7 +20,11 @@
     }
     
     // Include the database connection
+<<<<<<< Updated upstream
     include 'C:\xampp\htdocs\Group15\WebSolution\inc\dbconn.inc.php';
+=======
+    include 'inc\dbconn.inc.php';
+>>>>>>> Stashed changes
 
     // Fetch machines from the database
     $machines = [];
@@ -102,7 +110,11 @@
         </div>
     </div>
     
+<<<<<<< Updated upstream
     <script defer src="scripts/fmdscript.js"></script>
+=======
+    <script defer src="scripts/machine_script.js"></script>
+>>>>>>> Stashed changes
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         fetchMachines(); // Fetch machines when the page loads
