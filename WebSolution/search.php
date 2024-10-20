@@ -65,16 +65,16 @@
                 <div id = 'search-filter-misc'>
 
                 <div class='search-filter'>
-                    <label>Error:</label>
+                    <label for = "error-code">Error:</label>
                     <div class="search-filter-input">
-                    <input type="text" name="error-code" value="<?php echo $errorcode; ?>" />
+                    <input id = "error-code" type="text" name="error-code" value="<?php echo $errorcode; ?>" />
                     </div>
                 </div>
 
                 <div class='search-filter'>
-                    <label>Status:</label>
+                    <label for="operational-status">Status:</label>
                     <div class="search-filter-input">
-                    <input type="text" name="operational-status" value="<?php echo $status; ?>" />
+                    <input id="operational-status" type="text" name="operational-status" value="<?php echo $status; ?>" />
 
                     </div>
                 
@@ -119,9 +119,7 @@
         </div>
     </div>
     </div>
-    <footer>
-        <p>Dashboard Footer</p>
-    </footer>
+    <?php require_once "inc/footer.inc.php"; ?>
 </body>
 
 </html>

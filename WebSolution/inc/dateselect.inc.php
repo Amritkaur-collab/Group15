@@ -26,7 +26,7 @@
     <!-- 'return false' stops the form submit from reloading the page -->
     <form onsubmit="setDT(); return false">
     <div id = "time-input">
-        <label id = "dts-time-label">Time:</label>
+        <label for = "hour">Time:</label>
         <input id = "hour" type="number" min="0" max="23" required></input> :
         <select id = "minutes">
             <option value = "00">00</option>

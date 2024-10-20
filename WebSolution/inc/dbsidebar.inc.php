@@ -8,6 +8,10 @@
         }
         if(requireRoleBtn(array('Factory Manager')))
         {
+            echo "<a href='prod-operator-tasks.php'><button id = 'dbsidebar-assign-jobs' class = 'sidebar-button'></button></a><br/>";
+        }
+        if(requireRoleBtn(array('Factory Manager')))
+        {
             echo "<a href='Add-Update-Remove-Machines.php'><button id = 'dbsidebar-manage-machines' class = 'sidebar-button'></button></a><br/>";
         }
         if(requireRoleBtn(array('Factory Manager')))

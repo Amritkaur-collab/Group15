@@ -6,15 +6,27 @@
     <meta name="author" content="Group 15" />
     <meta name="description" content="Assign roles, jobs and machines to operators " />
     <title>Operator Tasks - Roles, Jobs, Machines</title>
+    <link rel="stylesheet" href="styles/commonelements.css">
     <link rel="stylesheet" href="styles/ci.css">
 
    <!--Assign roles/machines/jobs to specific Production Operators-->
 
+   <?php
+    require_once "auth/sessioncheck.php";
+
+    require_once "dbfunctions.php";
+    require_once "inc/dbconn.inc.php";
+    ?>
+
 </head>
 <body>
+        <?php require_once "inc/dbheader.inc.php"; ?>
         <?php require_once "inc/dbsidebar.inc.php"; ?>
   
+        <div id='pagetitle'>
         <h1>Assigning of Operator Tasks</h1>
+        </div>
+        <div id="db-content">
         <form method="POST" action="assign-tasks.php">
         
             <div class="grid-container">
@@ -162,10 +174,9 @@
         --> 
 
         </form>
+        </div>
 </body>
 
-<footer>
-    @FactoryWorks Co.
-</footer>
+<?php require_once "inc/footer.inc.php"; ?>
 
 </html>

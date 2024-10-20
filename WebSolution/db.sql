@@ -47,16 +47,6 @@ CREATE TABLE jobs (
         ON UPDATE CASCADE
 );
 
-CREATE TABLE jobs (
-    job_id INT AUTO_INCREMENT PRIMARY KEY,
-    job_name VARCHAR(255) NOT NULL,
-    job_duration INT NOT NULL,  -- Duration in minutes
-    machine_name VARCHAR(255),
-    FOREIGN KEY (machine_name) REFERENCES Machines(machine_name)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
-);
-
 CREATE TABLE Users
 (
     user_id  CHAR(20),

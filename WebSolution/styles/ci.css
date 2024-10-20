@@ -59,16 +59,6 @@ table th, td {
     align-self: center;
 }
 
-footer {
-    height: 35px;
-    width: 100%;
-    position: fixed;
-    margin-bottom: 0%;
-    text-align: center;
-    border: 1px solid black;
-    bottom: 0;
-}
-
 /* Side Bar */
 #dbsidebar
 {
