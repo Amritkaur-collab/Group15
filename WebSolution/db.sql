@@ -68,9 +68,8 @@ CREATE TABLE jobs_assign
 );
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
-GRANT all privileges ON Websolution.machines TO dbadmin@localhost;
-GRANT all privileges ON Websolution.machineLogs TO dbadmin@localhost;
-GRANT all privileges ON Websolution.users TO dbadmin@localhost;
-GRANT all privileges ON Websolution.jobs TO dbadmin@localhost;
-GRANT all privileges ON Websolution.jobs_assign TO dbadmin@localhost;
+GRANT all privileges ON Websolution.* TO dbadmin@localhost;
+
+-- Data --
+
 
