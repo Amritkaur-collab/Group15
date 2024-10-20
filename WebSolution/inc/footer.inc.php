@@ -1,4 +1,4 @@
 <footer>
-        <p>Dashboard Footer</p>
+        <p>@FactorieWorks Co.</p>
         <?php mysqli_close($conn) ?>
 </footer>
