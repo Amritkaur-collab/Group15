@@ -3,13 +3,27 @@ body {
     padding: 0px;
 }
 
-h1
-{
-    width: 100%;
-    border: 1px black solid;
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white; /* This keeps the content area white */
+    border-radius: 8px;       /* Smooth rounded edges */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for emphasis */
+    background-color:#3d5a80;
+}
+
+h1 {
     text-align: center;
-    display: block;
-    margin: 0px;
+    border: 1px solid black;
+    font-family: sans-serif;
+    max-width: 760px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .job-form {
@@ -22,39 +36,50 @@ h1
     font-family: sans-serif;
 }
 
+.job-form input[type="text"],
+.job-form input[type="number"],
+.job-form select {
+    width: 100%;
+    max-width: 800px;
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 .jobs-table {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-family: sans-serif;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
 }
 
 .jobs-table h3 {
-text-align: center;
+    text-align: center;
 }
 
 #job-table th {
-  padding: 15px;
-
+    padding: 15px;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-  }
-  
+}
+
 input, select {
     padding: 10px;
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 12px;
-  }
-  
+}
+
 .job-button {
     padding: 10px;
     background-color: #0056b3;
@@ -62,93 +87,8 @@ input, select {
     border: none;
     cursor: pointer;
     border-radius: 4px;
-  }
+}
 
-  .job-button:hover {
+.job-button:hover {
     background-color: #00408e;
-  }
-
-  #pagetitle
-  {
-      height: 40px;
-      display: flex;
-  }
-  
-  footer
-{
-    height: 65px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    border: 1px solid black;
 }
-
-#dbheader
-{
-    margin: 0px;
-    text-align: left;
-    border: 1px solid black;
-    height: 75px;
-    width: 100%;
-}
-#dbheader-info
-{
-    display: flex;
-}
-#dbheader-icon
-{
-    margin-left: 10px;
-    max-width: 75px;
-    min-width: 75px;
-    max-height: 75px;
-    min-height: 75px;
-}
-#dbheader-info p
-{
-    padding-left: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-}
-
-#dbheader-user
-{
-    display: flex;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-#dbheader-user-text
-{
-    display: inline;
-}
-
-#dbheader-user-icon
-{
-    margin-left: 10px;
-    border: 1px solid black;
-    max-width: 75px;
-    min-width: 75px;
-    max-height: 75px;
-    min-height: 75px;
-}
-
-#dbsidebar
-{
-    border: 1px black solid;
-    float: left;
-    display: block;
-}
-#dbsidebar-button
-{
-    margin: none;
-    min-height: 75px;
-    min-width: 75px;
-}
-
-#searchpage
-{
-    display: flex;
-}
-

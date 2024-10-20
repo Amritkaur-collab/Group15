@@ -1,0 +1,149 @@
+let machines = [];
+let editMode = false; // Track if we're in edit mode
+let currentEditIndex = null; // Store the index of the machine being edited
+
+function fetchMachines() {
+    fetch('fetch_machines.php') // You will create this PHP script next
+        .then(response => response.json())
+        .then(data => {
+            machines = data; // Set the machines array to the fetched data
+            updateMachineTable(); // Update the displayed table
+        })
+        .catch(error => console.error('Error fetching machines:', error));
+}
+
+function addMachine() {
+    const machineName = document.getElementById("machine-name").value;
+    const machineLocation = document.getElementById("machine-location").value;
+    const machineDate = document.getElementById("machine-date").value;
+    const machineSerial = document.getElementById("machine-serial").value;
+
+    if (!machineName) {
+        alert("Please provide a machine name");
+        return;
+    }
+
+    const machineData = {
+        machine_name: machineName,
+        machine_location: machineLocation || null,
+        date_acquired: machineDate || null,
+        serial_number: machineSerial || null
+    };
+
+    if (editMode) {
+        // Update existing machine
+        fetch('edit_machine.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(machineData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                console.log(`Updated machine: ${JSON.stringify(machineData)}`);
+                fetchMachines(); // Refresh the machine list
+            } else {
+                console.error('Error updating machine:', data.message);
+            }
+            editMode = false; // Reset edit mode
+            currentEditIndex = null; // Reset current edit index
+        });
+    } else {
+        // Add new machine
+        fetch('add_machine.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(machineData),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Handle success
+        })
+        .catch(error => console.error('Fetch error:', error)); // Log any fetch errors
+        
+    }
+
+    resetForm();
+}
+
+function updateMachineTable() {
+    const machineTableBody = document.getElementById("machine-table").querySelector("tbody");
+    machineTableBody.innerHTML = ""; // Clear the table
+
+    machines.forEach((machine) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${machine.machine_name}</td>
+            <td>${machine.machine_location || ""}</td>
+            <td>${machine.date_acquired || ""}</td>
+            <td>${machine.serial_number || ""}</td>
+            <td>
+                <button onclick="editMachine('${machine.machine_name}')">Edit</button>
+                <button onclick="removeMachine('${machine.machine_name}')">Remove</button>
+            </td>
+        `;
+
+        machineTableBody.appendChild(row);
+    });
+}
+
+function editMachine(machineName) {
+    const machine = machines.find(m => m.machine_name === machineName);
+    if (machine) {
+        document.getElementById("machine-name").value = machine.machine_name;
+        document.getElementById("machine-location").value = machine.machine_location || "";
+        document.getElementById("machine-date").value = machine.date_acquired || "";
+        document.getElementById("machine-serial").value = machine.serial_number || "";
+
+        editMode = true; // Set edit mode
+        currentEditIndex = machines.findIndex(m => m.machine_name === machineName); // Store the index of the machine being edited
+    }
+}
+
+function removeMachine(machineName) {
+    const confirmed = confirm(`Are you sure you want to remove ${machineName}?`);
+    if (confirmed) {
+        const machineData = { machine_name: machineName };
+
+        fetch('remove_machine.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(machineData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                // Remove the machine from the local array
+                machines = machines.filter(m => m.machine_name !== machineName);
+                updateMachineTable(); // Update the displayed table
+                console.log(`Removed machine: ${machineName}`);
+            } else {
+                console.error('Error removing machine:', data.message);
+            }
+        });
+    }
+}
+
+function resetForm() {
+    document.getElementById("machine-name").value = "";
+    document.getElementById("machine-location").value = "";
+    document.getElementById("machine-date").value = "";
+    document.getElementById("machine-serial").value = "";
+    editMode = false;
+    currentEditIndex = null;
+}
+
+// Call fetchMachines to load data when the page loads
+window.onload = fetchMachines;
+
