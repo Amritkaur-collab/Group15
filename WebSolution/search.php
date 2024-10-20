@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Smart Manufacturing Dashboard: Advanced Search</title>
@@ -12,14 +11,13 @@
     requireRole(array('Auditor'));
     ?>
 </head>
-
 <body>
     <?php require_once "inc/dbheader.inc.php"; ?>
     <?php require_once "inc/dbsidebar.inc.php"; ?>
-
+    
     <?php require_once "inc/dateselect.inc.php"; ?>
 
-    <div id="pagetitle">
+    <div id = "pagetitle">
         <h1>Advanced Search</h1>
     </div>
 
@@ -121,5 +119,4 @@
     </div>
     <?php require_once "inc/footer.inc.php"; ?>
 </body>
-
 </html>
