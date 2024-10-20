@@ -39,6 +39,13 @@
 
                 <?php
 
+                /* 
+                This graph is intended to show the average productivity for the last 3 hours.
+                Ideally, it would use the current time for the graph.  However, the machines 
+                do not output logs in real time, so for testing and display purposes, we use 
+                the last 6 logs of the CNC machine to determine the most recent time period.
+                */
+                
                 $time = getMostRecentTimestamps($c, 6, 'CNC Machine');
 
                 $sql = "SELECT machine_name, operational_status
