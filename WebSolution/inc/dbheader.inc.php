@@ -1,7 +1,7 @@
 <header id = dbheader>
     <div id='dbheader-info'>
         <img src='images/dashboard/header/logo.png' id='dbheader-icon'/>
-        <p>Factory Works Co.</p>
+        <p>FactorieWorks Co.</p>
     </div>
 
     <div id='dbheader-user'>
