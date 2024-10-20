@@ -1,80 +1,88 @@
 <?php
-// Include the database configuration
-require_once "../WebSolution/inc/dbconn.inc.php"; // Ensure session is started in this file
+
+require_once "../WebSolution/inc/dbconn.inc.php"; 
 require_once "../WebSolution/auth/sessioncheck.php";
 
-// Initialize logs session variable if not set
+
 if (!isset($_SESSION['logs'])) {
     $_SESSION['logs'] = [];
 }
 
-// Update machine status page
+
+function updateMachineStatus($conn, $machine, $status, $employeeId, $employeeName, $log, $timestamp) {
+    $stmt = $conn->prepare("UPDATE MachineNotes SET operational_status = ?, user_id = ?, user_name = ?, content = ? WHERE machine_name = ? AND timestamp = ?");
+    $stmt->bind_param("sissss", $status, $employeeId, $employeeName, $log, $machine, $timestamp);
+    return $stmt->execute();
+}
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the form inputs and sanitize them
+   
     $machine = filter_input(INPUT_POST, "machine", FILTER_SANITIZE_STRING);
     $status = filter_input(INPUT_POST, "status", FILTER_SANITIZE_STRING);
     $employeeId = filter_input(INPUT_POST, "employee_id", FILTER_SANITIZE_NUMBER_INT);
     $employeeName = filter_input(INPUT_POST, "employee_name", FILTER_SANITIZE_STRING);
     $log = filter_input(INPUT_POST, "details", FILTER_SANITIZE_STRING);
+    $timestamp = filter_input(INPUT_POST, "timestamp", FILTER_SANITIZE_STRING); 
 
-    // Use a dash if the employee name is empty
+    
     $employeeName = empty($employeeName) ? '-' : $employeeName;
 
-    // Create a new log entry
-    $newLogEntry = [
-        date('Y-m-d H:i:s'), // Date and Time
-        $machine,            // Machine
-        $status,             // Status
-        $employeeId,         // Employee ID
-        $employeeName,       // Employee Name
-        $log                  // Maintenance Details
-    ];
-
-    // Add the new log entry to the session logs
-    $_SESSION['logs'][] = $newLogEntry;
-
-    // Keep only the last 5 entries in the session logs
-    if (count($_SESSION['logs']) > 5) {
-        array_shift($_SESSION['logs']); // Remove the oldest log if there are more than 5
-    }
-
-    // Check if the machine exists in the Machines table
-    $machineCheckStmt = $conn->prepare("SELECT COUNT(*) FROM Machines WHERE machine_name = ?");
-    $machineCheckStmt->bind_param("s", $machine);
-    $machineCheckStmt->execute();
-    $machineCheckStmt->bind_result($count);
-    $machineCheckStmt->fetch();
-    $machineCheckStmt->close();
-
-    if ($count > 0) {
-        // The machine exists, proceed with insertion
-        $stmt = $conn->prepare("INSERT INTO MachineNotes (timestamp, machine_name, user_id, user_name, content) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssiss", $newLogEntry[0], $newLogEntry[1], $newLogEntry[2], $newLogEntry[3], $newLogEntry[4]);
-
-        if ($stmt->execute()) {
-            // Optional: handle successful insert
+    if (!empty($timestamp)) {
+        if (updateMachineStatus($conn, $machine, $status, $employeeId, $employeeName, $log, $timestamp)) {
+            echo "Job updated successfully.";
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit();
         } else {
-            echo "Error: " . htmlspecialchars($stmt->error); // Display error if the insertion fails
+            echo "Error updating job: " . htmlspecialchars($stmt->error);
         }
-        
-        $stmt->close(); // Close the statement
     } else {
-        echo "Error: Machine '" . htmlspecialchars($machine) . "' does not exist in the Machines table.";
-    }
+        $newLogEntry = [
+            date('Y-m-d H:i:s'), 
+            $machine,            
+            $status,             
+            $employeeId,         
+            $employeeName,       
+            $log              
+        ];
 
-    // Optional: Redirect to prevent form re-submission
-    header("Location: " . $_SERVER['PHP_SELF']);
-    exit();
+        $_SESSION['logs'][] = $newLogEntry;
+
+        
+        if (count($_SESSION['logs']) > 5) {
+            array_shift($_SESSION['logs']); 
+        }
+
+        $machineCheckStmt = $conn->prepare("SELECT COUNT(*) FROM Machines WHERE machine_name = ?");
+        $machineCheckStmt->bind_param("s", $machine);
+        $machineCheckStmt->execute();
+        $machineCheckStmt->bind_result($count);
+        $machineCheckStmt->fetch();
+        $machineCheckStmt->close();
+
+        if ($count > 0) {
+            $stmt = $conn->prepare("UPDATE MachineNotes SET machine_name = ?, operational_status = ?, user_id = ?, user_name = ?, content = ? WHERE machine_name = ? AND timestamp = ?");
+            $stmt->bind_param("ssissss", $machine, $status, $employeeId, $employeeName, $log, $machine, $newLogEntry[0]);
+
+            if ($stmt->execute()) {
+                echo "Updated successfully.";
+                header("Location: " . $_SERVER['PHP_SELF']);
+                exit();
+            } else {
+                echo "Error logging job: " . htmlspecialchars($stmt->error); 
+            }
+            
+            $stmt->close(); 
+        } else {
+            echo "Error: Machine '" . htmlspecialchars($machine) . "' does not exist in the Machines table.";
+        }
+    }
 }
 
-// Retrieve the logs from the session
 $logs = $_SESSION['logs'];
-
-// Reverse the logs array to show the most recent updates first
 $logs = array_reverse($logs);
 
-// Fetch all logs from the database
-$result = $conn->query("SELECT timestamp, machine_name, user_id, user_name, content FROM MachineNotes ORDER BY timestamp DESC");
+$result = $conn->query("SELECT timestamp, machine_name, operational_status, user_id, user_name, content FROM MachineNotes ORDER BY timestamp DESC");
 $databaseLogs = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
@@ -91,6 +99,35 @@ $databaseLogs = $result->fetch_all(MYSQLI_ASSOC);
     <?php require_once "auth/permissioncheck.php";
         requireRole(array('Production Operator'));
     ?>
+    <style>
+        .status-active {
+            background-color: green;
+            color: white;
+        }
+
+        .status-inactive {
+            background-color: red;
+            color: white;
+        }
+
+        .status-maintenance {
+            background-color: yellow;
+            color: black;
+        }
+
+        .status-idle {
+            background-color: black;
+            color: white;
+        }
+    </style>    
+    <script>
+        function setStatusColor() {
+            var select = document.getElementById("status");
+            var selectedOption = select.options[select.selectedIndex];
+            select.className = ''; 
+            select.classList.add(selectedOption.className);
+        }
+    </script>
 </head>
 <body>
     <?php require_once "../WebSolution/inc/dbsidebar.inc.php"; ?>
@@ -132,10 +169,12 @@ $databaseLogs = $result->fetch_all(MYSQLI_ASSOC);
 
                     <li>
                         <label for="status">Operational Status: </label>
-                        <select name="status" id="status" required>
+                        <select name="status" id="status" required onchange="setStatusColor()">
                             <option value="">Select Status</option>
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
+                            <option value="active" class="status-active">Active</option>
+                            <option value="inactive" class="status-inactive">Inactive</option>
+                            <option value="maintenance" class="status-maintenance">Maintenance</option>
+                            <option value="idle" class="status-idle">Idle</option>
                         </select>
                     </li>
 
@@ -150,15 +189,18 @@ $databaseLogs = $result->fetch_all(MYSQLI_ASSOC);
                     </li>
 
                     <li>
-                        <label for="details">Maintenance Details:</label>
+                        <label for="details">Additional Details:</label>
                         <textarea name="details" id="details" rows="4" cols="50"></textarea>
                     </li>
 
+                    <input type="hidden" name="timestamp" id="timestamp" value="">
+                    
                     <li>
                         <input type="submit" id="submit" value="Update">
                     </li>
                 </ul>
             </div>
+
             <div id="latest-machine-updates">
                 <h2>Recent Machine Updates</h2>
                 <?php if (!empty($logs)): ?>
@@ -167,6 +209,7 @@ $databaseLogs = $result->fetch_all(MYSQLI_ASSOC);
                             <tr>
                                 <th>Date and Time</th>
                                 <th>Machine</th>
+                                <th>Operational Status</th>
                                 <th>Updated By (ID)</th>
                                 <th>Updated By (Name)</th>
                                 <th>Additional Details</th>
@@ -177,18 +220,22 @@ $databaseLogs = $result->fetch_all(MYSQLI_ASSOC);
                                 <tr>
                                     <td><?php echo htmlspecialchars($logEntry[0]); ?></td>
                                     <td><?php echo htmlspecialchars($logEntry[1]); ?></td>
-                                    <td><?php echo htmlspecialchars($logEntry[2]); ?></td>
+                                    <td class="<?php echo 'status-' . strtolower($logEntry[2]); ?>">
+                                        <?php echo htmlspecialchars($logEntry[2]); ?>
+                                    </td>
                                     <td><?php echo htmlspecialchars($logEntry[3]); ?></td>
                                     <td><?php echo htmlspecialchars($logEntry[4]); ?></td>
+                                    <td><?php echo htmlspecialchars($logEntry[5]); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
                 <?php else: ?>
-                    <p>No machine updates made yet.</p>
+                    <p>No recent updates.</p>
                 <?php endif; ?>
             </div>
         </form>
+    </div>
     <footer>
         <p>@FactorieWorks Co.</p>
     </footer>
