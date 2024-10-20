@@ -34,9 +34,9 @@
     <?php require_once "inc/dbsidebar.inc.php"; ?>
 
         <div class="container">
-            <h1>Manage Jobs</h1>
+        <h1>Manage Jobs</h1>
             <div class="job-form">
-                <h3>Add Jobs</h3>
+                <h3>Add / Edit Jobs</h3>
                 <label for="job-name">Job Name:</label>
                 <input type="text" id="job-name" required>
 
@@ -53,7 +53,7 @@
                     <?php endwhile; ?>
                 </select>
 
-                <button class="job-button" onclick="addJob()">Add Job</button>
+                <button class="job-button" onclick="addJob()">Add / Edit Job</button>
             </div>
     
             <div class="jobs-table">

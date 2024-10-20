@@ -40,7 +40,7 @@
     <div class="container">
         <h1>Manage Machines</h1>
         <div class="machine-form">
-            <h3>Add Machine</h3>
+            <h3>Add / Edit Machine</h3>
             <label for="machine-name">Machine Name:</label>
             <input type="text" id="machine-name" required>
             
@@ -53,7 +53,7 @@
             <label for="machine-serial">Serial Number:</label>
             <input type="text" id="machine-serial">
 
-            <button class="machine-button" onclick="addMachine()">Add Machine</button>
+            <button class="machine-button" onclick="addMachine()">Add / Edit Machine</button>
         </div>
         <div class="machines-table">
             <h3>Machines</h3>

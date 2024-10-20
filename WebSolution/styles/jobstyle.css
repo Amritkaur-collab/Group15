@@ -11,7 +11,7 @@ body {
     background-color: white; /* This keeps the content area white */
     border-radius: 8px;       /* Smooth rounded edges */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for emphasis */
-    background-color:#3d5a80;
+    background-color:#35393C;
 }
 
 h1 {
@@ -82,7 +82,7 @@ input, select {
 
 .job-button {
     padding: 10px;
-    background-color: #0056b3;
+    background-color: #FF6843;
     color: white;
     border: none;
     cursor: pointer;
@@ -90,5 +90,5 @@ input, select {
 }
 
 .job-button:hover {
-    background-color: #00408e;
+    background-color: #f74f25;
 }

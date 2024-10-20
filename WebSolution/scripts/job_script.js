@@ -1,19 +1,21 @@
 let jobs = [];
 let editJobMode = false; // Track if we're in edit mode for jobs
 let currentEditJobIndex = null; // Store the index of the job being edited
-
 function fetchJobs() {
     fetch('fetch_jobs.php')
         .then(response => response.json())
         .then(data => {
             console.log("Fetched job data:", data);
+
+            // Convert job_id to a number
             jobs = data.map(job => ({
-                job_id: job.job_id,
+                job_id: Number(job.job_id),  // Convert job_id to number
                 job_name: job.job_name,
                 job_duration: job.job_duration,
                 machine_name: job.machine_name
             }));
-            console.log("Processed jobs:", jobs);
+
+            console.log("Processed jobs:", jobs); // Log the processed jobs array
             updateJobTable();
         })
         .catch(error => console.error('Error fetching jobs:', error));
@@ -67,6 +69,7 @@ function addJob() {
         })
         .catch(error => console.error('Fetch error:', error));
     } else {
+    
         // Add new job
         fetch('add_job.php', {
             method: 'POST',
@@ -111,14 +114,29 @@ function updateJobTable() {
 }
 
 function editJob(jobId) {
-    const job = jobs.find(j => j.job_id === jobId);
+    console.log("Edit button clicked for job ID:", jobId);  // Log jobId
+
+    // Ensure jobId is a number (just in case)
+    const job = jobs.find(j => j.job_id === Number(jobId));
+    console.log("Found job:", job);  // Log job found for the given ID
+
     if (job) {
         document.getElementById("job-name").value = job.job_name;
         document.getElementById("job-duration").value = job.job_duration;
-        document.getElementById("machine-select").value = job.machine_name; // Use machine_name instead of machine_id
+
+        const machineSelect = document.getElementById("machine-select");
+        const machineOption = Array.from(machineSelect.options).find(opt => opt.text === job.machine_name);
+        
+        if (machineOption) {
+            machineSelect.value = machineOption.value;
+        } else {
+            console.error("Machine name not found in dropdown options");
+        }
 
         editJobMode = true;
-        currentEditJobIndex = jobs.findIndex(j => j.job_id === jobId);
+        currentEditJobIndex = jobs.findIndex(j => j.job_id === Number(jobId));
+    } else {
+        console.error("Job not found with ID:", jobId);
     }
 }
 
