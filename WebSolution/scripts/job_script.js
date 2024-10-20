@@ -3,11 +3,18 @@ let editJobMode = false; // Track if we're in edit mode for jobs
 let currentEditJobIndex = null; // Store the index of the job being edited
 
 function fetchJobs() {
-    fetch('fetch_jobs.php') // Ensure you create this PHP script to fetch jobs
+    fetch('fetch_jobs.php')
         .then(response => response.json())
         .then(data => {
-            jobs = data; // Set the jobs array to the fetched data
-            updateJobTable(); // Update the displayed table
+            console.log("Fetched job data:", data);
+            jobs = data.map(job => ({
+                job_id: job.job_id,
+                job_name: job.job_name,
+                job_duration: job.job_duration,
+                machine_name: job.machine_name
+            }));
+            console.log("Processed jobs:", jobs);
+            updateJobTable();
         })
         .catch(error => console.error('Error fetching jobs:', error));
 }
@@ -85,20 +92,20 @@ function addJob() {
 
 function updateJobTable() {
     const jobTableBody = document.getElementById("job-table").querySelector("tbody");
-    jobTableBody.innerHTML = ""; // Clear the table
+    jobTableBody.innerHTML = "";
 
     jobs.forEach((job) => {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${job.job_id}</td>
             <td>${job.job_name}</td>
-            <td>${job.assigned_machine}</td>
+            <td>${job.machine_name}</td>
+            <td>${job.job_duration}</td>
             <td>
                 <button onclick="editJob(${job.job_id})">Edit</button>
                 <button onclick="removeJob(${job.job_id})">Remove</button>
             </td>
         `;
-
         jobTableBody.appendChild(row);
     });
 }
@@ -108,10 +115,10 @@ function editJob(jobId) {
     if (job) {
         document.getElementById("job-name").value = job.job_name;
         document.getElementById("job-duration").value = job.job_duration;
-        document.getElementById("machine-select").value = job.machine_id; // Update machine select
+        document.getElementById("machine-select").value = job.machine_name; // Use machine_name instead of machine_id
 
-        editJobMode = true; // Set edit mode
-        currentEditJobIndex = jobs.findIndex(j => j.job_id === jobId); // Store the index of the job being edited
+        editJobMode = true;
+        currentEditJobIndex = jobs.findIndex(j => j.job_id === jobId);
     }
 }
 

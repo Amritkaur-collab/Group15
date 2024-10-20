@@ -22,7 +22,7 @@
     include 'inc\dbconn.inc.php';
 
     // Fetch machines for the dropdown
-    $machineQuery = "SELECT machine_name FROM Machines"; // Adjusted query to fetch machine_name
+    $machineQuery = "SELECT machine_name FROM Machines";
     $machines = $conn->query($machineQuery);
     ?>
 </head>
@@ -30,11 +30,9 @@
     <?php require_once "inc/dbheader.inc.php"; ?>
     <?php require_once "inc/dbsidebar.inc.php"; ?>
 
-    <h1>Manage Jobs</h1>
-
-    <div class="colored-section">
         <div class="container">
-            <div class="machine-form">
+            <h1>Manage Jobs</h1>
+            <div class="job-form">
                 <h3>Add Jobs</h3>
                 <label for="job-name">Job Name:</label>
                 <input type="text" id="job-name" required>
@@ -52,7 +50,7 @@
                     <?php endwhile; ?>
                 </select>
 
-                <button class="machine-button" onclick="addJob()">Add Job</button>
+                <button class="job-button" onclick="addJob()">Add Job</button>
             </div>
     
             <div class="jobs-table">
@@ -63,6 +61,7 @@
                             <th>Job ID</th>
                             <th>Job Name</th>
                             <th>Assigned Machine</th>
+                            <th>Job Duration (minutes)</th>
                             <th>Actions</th>
                         </tr>
                     </thead>

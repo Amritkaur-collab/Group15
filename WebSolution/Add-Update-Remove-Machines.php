@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/machinestyle.css">
     <link rel="stylesheet" href="styles/style.css">
     <?php
+    // Check if the user has a valid session
     session_start();
     if(!isset($_SESSION['exists'])) {
         session_unset();
@@ -51,7 +52,6 @@
 
             <button class="machine-button" onclick="addMachine()">Add Machine</button>
         </div>
-
         <div class="machines-table">
             <h3>Machines</h3>
             <table id="machine-table">
@@ -82,26 +82,6 @@
         </div>
     </div> 
 
-    <!-- Modal for editing machine details -->
-    <div id="editMachineModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h3>Edit Machine</h3>
-            <label for="edit-machine-name">Machine Name:</label>
-            <input type="text" id="edit-machine-name" required>
-            
-            <label for="edit-machine-location">Location:</label>
-            <input type="text" id="edit-machine-location">
-            
-            <label for="edit-machine-date">Date Acquired:</label>
-            <input type="date" id="edit-machine-date">
-            
-            <label for="edit-machine-serial">Serial Number:</label>
-            <input type="text" id="edit-machine-serial">
-
-            <button class="machine-button" onclick="updateMachine()">Update Machine</button>
-        </div>
-    </div>
     
     <script defer src="scripts/machine_script.js"></script>
     <script>
