@@ -1,0 +1,8 @@
+INSERT INTO jobs_assign (job_id, machine, job_desc, assigned_to) 
+VALUES 
+('JB2024-10-01', NULL, NULL, NULL),
+('JB2024-10-02', NULL, NULL, NULL),
+('JB2024-10-03', NULL, NULL, NULL),
+('JB2024-10-04', NULL, NULL, NULL),
+('JB2024-10-05', NULL, NULL, NULL),
+('JB2024-10-06', NULL, NULL, NULL);

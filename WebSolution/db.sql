@@ -56,9 +56,10 @@ CREATE TABLE Users
 CREATE TABLE jobs_assign
 (
     job_id CHAR(20),
-    user_id CHAR(20),
     machine CHAR(30),
     job_desc CHAR(250),
+    role CHAR(100),
+    assigned_to CHAR(20),
     PRIMARY KEY (job_id)
 );
 
