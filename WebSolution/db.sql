@@ -65,20 +65,6 @@ CREATE TABLE Users
     user_type  CHAR(30),
     PRIMARY KEY (user_id)
 );
-INSERT INTO Users VALUES('benn8654', '$2a$12$wM1dSKScyLcqh6YXWcpvKOJoHvtBJVjx1ZEZLt.y4pS2RZhiyOtIW', 'Penelope', 'Bennett', 'Administrator');
-INSERT INTO Users VALUES('moor5043', '$2a$12$I8l1K/bS8CRldL9q6ZFZZeqUUdUC3cJSBYVtqSFI6g5AW0YVhve7O', 'John', 'Moore', 'Factory Manager');
-INSERT INTO Users VALUES('john2376', '$2a$12$/WCUUGSk4lO.fStHh6S2euiuR4jEUMl70OmyvtvpJDS2zdmchHAI6', 'David', 'Johnson', 'Production Operator');
-INSERT INTO Users VALUES('lawr0842', '$2a$12$cm.nRRSZUvelALg0vBg16OYqsn.CMVNmMsJRyPS5dWMVj.zbdmQAK', 'Kaitlyn', 'Lawrence', 'Auditor');
-
-INSERT INTO MachineNotes (timestamp, machine_name, user_id, user_name, content) VALUES
-('2024-10-01 10:00:00', '3D Printer', '101', 'Alice Smith', 'Routine maintenance performed.'),
-('2024-10-02 11:30:00', 'CNC Machine', '102', 'Bob Johnson', 'Calibration complete.'),
-('2024-10-03 09:15:00', 'Industrial Robot', '103', 'Charlie Brown', 'Fault detected.'),
-('2024-10-04 14:45:00', 'Automated Guided Vehicle (AGV)', '104', 'David Wilson', 'Battery replaced.'),
-('2024-10-05 16:20:00', 'Smart Conveyor System', '105', 'Eve Davis', 'Maintenance scheduled.');
-
-
-
 
 CREATE TABLE jobs_assign
 (
@@ -94,5 +80,13 @@ CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON Websolution.* TO dbadmin@localhost;
 
 -- Data --
+
+
+INSERT INTO MachineNotes (timestamp, machine_name, user_id, user_name, content) VALUES
+('2024-10-01 10:00:00', '3D Printer', '101', 'Alice Smith', 'Routine maintenance performed.'),
+('2024-10-02 11:30:00', 'CNC Machine', '102', 'Bob Johnson', 'Calibration complete.'),
+('2024-10-03 09:15:00', 'Industrial Robot', '103', 'Charlie Brown', 'Fault detected.'),
+('2024-10-04 14:45:00', 'Automated Guided Vehicle (AGV)', '104', 'David Wilson', 'Battery replaced.'),
+('2024-10-05 16:20:00', 'Smart Conveyor System', '105', 'Eve Davis', 'Maintenance scheduled.');
 
 
