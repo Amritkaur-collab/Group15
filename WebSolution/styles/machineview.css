@@ -27,12 +27,7 @@
     position: relative;
     bottom: 0px;
     border-radius: 5px;  
-}
-
-.machine-view-graph canvas
-{
-
-
+    background-color: var(--inner-content-color);
 }
 .machine-view-graph-column
 {
@@ -60,6 +55,7 @@
 {
     border-collapse: collapse;
     width: 100%;
+    background-color: var(--inner-content-color);
 }
 
 .machine-view-table-column thead

@@ -19,7 +19,7 @@
             </p>
         </div>
         <?php
-        if (file_exists('images/users/$_SESSION[user_id].png')) {
+        if (file_exists("images/users/$_SESSION[user_id].png")) {
             echo "<img src='images/users/$_SESSION[user_id].png' id='dbheader-user-icon'/>";
         } else {
             echo "<img src='images/users/no-user-icon.svg' id='dbheader-user-icon'/>";

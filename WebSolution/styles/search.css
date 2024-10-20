@@ -24,6 +24,7 @@
     padding-top: 0px;
     border: 1px solid black;
     border-radius: 5px;  
+    background-color: var(--inner-content-color);
 }
 #filters h2
 {
@@ -132,6 +133,7 @@
     overflow-x: hidden;
     border: 1px solid black;
     border-radius: 5px;  
+    background-color: var(--inner-content-color);
 
 }
 #results-table table

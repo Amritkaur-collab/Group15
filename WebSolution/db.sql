@@ -12,9 +12,6 @@ CREATE TABLE Machines
     machine_location    CHAR(100),      -- New column, allows NULL
     date_acquired       DATE,           -- New column, allows NULL
     serial_number       CHAR(30),       -- New column, allows NULL
-    machine_location    CHAR(100),      -- New column, allows NULL
-    date_acquired       DATE,           -- New column, allows NULL
-    serial_number       CHAR(30),       -- New column, allows NULL
     PRIMARY KEY (machine_name)
 );
 
@@ -30,7 +27,6 @@ CREATE TABLE MachineLogs
     operational_status  CHAR(20),
     error_code          CHAR(4),
     production_count    INTEGER,
-    maintenance_log     VARCHAR(200),
     maintenance_log     VARCHAR(200),
     speed               DECIMAL(5,2),
     PRIMARY KEY (timestamp, machine_name),

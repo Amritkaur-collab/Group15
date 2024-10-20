@@ -22,6 +22,7 @@ h2
     margin: 1px;
     border: 1px solid black;
     border-radius: 5px;  
+    background-color: var(--inner-content-color);
 }
 canvas
 {
@@ -68,6 +69,7 @@ td
     border-radius: 5px; 
     padding: 5px;
     margin: 1px;
+    background-color: var(--inner-content-color);
 }
 
 .first-column
