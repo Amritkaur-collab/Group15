@@ -19,9 +19,18 @@
         </p>
         </div>
             <?php
-             echo "<img src='images/users/$_SESSION[user_id].png' id='dbheader-user-icon'/>";
+            if(file_exists('images/users/$_SESSION[user_id].png'))
+            {
+                echo "<img src='images/users/$_SESSION[user_id].png' id='dbheader-user-icon'/>";
+            }
+            else
+            {
+                echo "<img src='images/users/no-user-icon.svg' id='dbheader-user-icon'/>";
+            }
+             
             ?>
 
-            <a href='inc/signout.inc.php'><button>Sign Out</button></a>
+        <a href='inc/signout.inc.php'><button id = 'db-sign-out'></button></a>
+
     </div>
 </header>

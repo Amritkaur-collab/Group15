@@ -7,7 +7,7 @@
     <meta name="description" content="Add-Update-Remove-Jobs/Machines" />
     <title>Manage Machines</title>
     <link rel="stylesheet" href="styles/machinestyle.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/commonelements.css">
     <?php
     // Check if the user has a valid session
     session_start();

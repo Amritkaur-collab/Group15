@@ -27,6 +27,10 @@ body
     text-align: center;
     display: block;
     margin: 1px;
+    margin-bottom: 0px;
+    border-radius: 5px;  
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 footer
@@ -78,6 +82,7 @@ footer
     border: 1px solid black;
     height: 70px;
     margin: 1px;
+    border-radius: 5px;  
 }
 
 #dbheader-user-text
@@ -93,12 +98,33 @@ footer
     border: 1px solid black;
     width: 65px;
     height: 65px;
+    border-radius: 65px;  
+}
+
+#db-sign-out
+{
+    margin: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+    background-image: url("../images/dashboard/header/signout.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    top: 25%;
+}
+
+#db-sign-out:hover
+{
+    background-color: lightgrey;
 }
 
 /* Side Bar */
 #dbsidebar
 {
     float: left;
+    height: 80vh;
 }
 #dbsidebar button
 {
@@ -108,7 +134,8 @@ footer
     background-color: rgb(255, 255, 255);
     border: 1px grey solid;
     background-position: center; 
-    background-size: 85px 85px;
+    background-size: 75px;
+    border-radius: 5px;  
 }
 #dbsidebar button:hover
 {
@@ -132,12 +159,12 @@ footer
 
 #dbsidebar-manage-machines
 {
-    background-image: url("../images/dashboard/sidebar/search.svg");
+    background-image: url("../images/dashboard/sidebar/machine-manage.svg");
 }
 
 #dbsidebar-manage-jobs
 {
-    background-image: url("../images/dashboard/sidebar/search.svg");
+    background-image: url("../images/dashboard/sidebar/job-manage.svg");
 }
 
 

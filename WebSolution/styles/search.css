@@ -9,6 +9,10 @@
     display: flex;
     width: 100%;
     margin: 1px;
+    margin-top: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 2px;
 }
 #filters
 {
@@ -18,6 +22,7 @@
     padding-bottom: 0px;
     padding-top: 0px;
     border: 1px solid black;
+    border-radius: 5px;  
 }
 #filters h2
 {
@@ -125,6 +130,7 @@
     overflow: scroll;
     overflow-x: hidden;
     border: 1px solid black;
+    border-radius: 5px;  
 
 }
 #results-table table

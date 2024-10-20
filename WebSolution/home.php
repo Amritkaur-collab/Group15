@@ -65,9 +65,9 @@
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo "
                         <tr>
-                            <td>$row[machine_name]</td>
-                            <td class = 'machine-status-$row[operational_status]'>$row[operational_status]</td>
-                            <td class = 'machine-status-$row[operational_status]'><a href = 'machineview.php?machine=$row[machine_name]'><button>View</button></a></td>
+                            <td class = 'first-column'>$row[machine_name]</td>
+                            <td class = 'machine-status-$row[operational_status] mid-column'>$row[operational_status]</td>
+                            <td class = 'last-column'><a href = 'machineview.php?machine=$row[machine_name]'><button>View</button></a></td>
                         </tr>";
                         }
                         mysqli_free_result($result);

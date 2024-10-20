@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Group 15" />
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/machineview.css" />
+    <link rel="stylesheet" href="styles/commonelements.css" />
     <title>Machine View</title>
     <?php
     require_once "auth/sessioncheck.php";

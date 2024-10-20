@@ -8,7 +8,7 @@
     <title>Manage Jobs</title>
     <link rel="stylesheet" href="styles/jobstyle.css" />
     <script defer src="scripts/job_script.js"></script>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/commonelements.css">
     <?php
     // Check if the user has a valid session
     session_start();

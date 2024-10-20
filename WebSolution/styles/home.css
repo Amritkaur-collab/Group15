@@ -4,6 +4,10 @@
     border: 1px solid black;
     width: 100%;
     margin: 1px;
+    margin-top: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 2px;
 }
 h2
 {
@@ -12,10 +16,11 @@ h2
 #avg-productivity
 {
     position: absolute;
-    right: 2px;
+    right: 3px;
     float: right;
     margin: 1px;
     border: 1px solid black;
+    border-radius: 5px;  
 }
 canvas
 {
@@ -42,16 +47,43 @@ canvas
 
 #db-home-machine-list
 {
-    border: 1px solid black;
-    margin: 1px;
+    margin: 2px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    border-collapse: collapse;
+    border-radius: 5px; 
+    border-radius: 5px; 
+    border-spacing: 0;
 }
 
-th, td, tr
+th
+{
+    display: none;
+}
+
+td
 {
     text-align: center;
-    border: 1px solid rgb(117, 117, 117);
+    border: 1px solid black;
+    border-radius: 5px; 
     padding: 5px;
+    margin: 1px;
+}
+
+.first-column
+{
+    border-top-right-radius: 0px; 
+    border-bottom-right-radius: 0px; 
+}
+
+.mid-column
+{
+    border-radius: 0px; 
+    border-left: none;
+    border-right: none;
+}
+
+.last-column
+{
+    border-top-left-radius: 0px; 
+    border-bottom-left-radius: 0px; 
 }
