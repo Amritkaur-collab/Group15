@@ -36,36 +36,6 @@ h1 {
     font-family: sans-serif;
 }
 
-.machine-form input[type="text"],
-.machine-form input[type="date"] {
-  width: 100%;            /* Make inputs take full width of their container */
-  max-width: 800px;        /* Set a maximum width to avoid excessive stretching */
-  padding: 10px;           /* Add padding for cleaner appearance */
-  margin: 5px 0 20px 0;    /* Add spacing between inputs */
-  box-sizing: border-box;  /* Ensure padding doesn't affect width */
-  border: 1px solid #ccc;  /* Set border styling */
-  border-radius: 4px;      /* Slightly round the corners */
-}
-
-.machines-table {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-family: sans-serif;
-}
-
-.machines-table h3 {
-text-align: center;
-}
-
-#machine-table th {
-  padding: 15px;
-
-}
-
 label {
     display: block;
     margin-bottom: 8px;
@@ -80,7 +50,7 @@ input, select {
     margin-bottom: 12px;
   }
   
-  .machine-button {
+button {
     padding: 10px;
     background-color: #FF6843;
     color: white;
