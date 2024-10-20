@@ -9,6 +9,9 @@ USE Websolution;
 CREATE TABLE Machines
 (
     machine_name        CHAR(45) NOT NULL,
+    machine_location    CHAR(100),      -- New column, allows NULL
+    date_acquired       DATE,           -- New column, allows NULL
+    serial_number       CHAR(30),       -- New column, allows NULL
     PRIMARY KEY (machine_name)
 );
 
