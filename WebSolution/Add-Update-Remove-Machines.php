@@ -16,6 +16,9 @@
         session_destroy();
         header('Location: login.php');
     }
+
+    require_once "auth/permissioncheck.php";
+    requireRole(array('Factory Manager'));
     
     // Include the database connection
     include 'inc\dbconn.inc.php';

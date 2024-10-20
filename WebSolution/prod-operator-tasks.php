@@ -13,9 +13,10 @@
 
    <?php
     require_once "auth/sessioncheck.php";
-
     require_once "dbfunctions.php";
     require_once "inc/dbconn.inc.php";
+    require_once "auth/permissioncheck.php";
+    requireRole(array('Factory Manager'));
     ?>
 
 </head>

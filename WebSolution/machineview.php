@@ -41,9 +41,9 @@
     <div id="db-content">
         <div id="machine-view-window">
 
-            <div id = 'machine-view-status'>
-            <h2>Status -</h2> 
-            <h2 class = 'machine-status-<?php echo $status?>'><?php echo $status ?></h2>
+            <div id='machine-view-status'>
+                <h2>Status -</h2>
+                <h2 class='machine-status-<?php echo $status ?>'><?php echo $status ?></h2>
             </div>
 
             <div class='machine-view-graph-column'>
@@ -88,71 +88,99 @@
             </div>
 
             <div class='machine-view-table-column'>
-                <div id = 'machine-view-log-table'>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Timestamp</th>
-                        <th>Error Code</th>
-                        <th>Maintenance Log</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-
-                <?php
-                $params = array($machine);
-            
-                $sql = "SELECT * FROM MachineLogs  WHERE machine_name = ? AND error_code IS NOT NULL AND error_code != '' ORDER BY timestamp desc";
-            
-                $statement = mysqli_stmt_init($c);
-                mysqli_stmt_prepare($statement, $sql);
-            
-                mysqli_stmt_bind_param($statement, 's', ...$params);
-                mysqli_stmt_execute($statement);
-            
-                if ($result = mysqli_stmt_get_result($statement)) {
-                    if (mysqli_num_rows($result) >= 1) 
-                    {
-                        while ($value = mysqli_fetch_assoc($result)) 
-                        {
-                            echo '
+                <div id='machine-view-log-table'>
+                    <table>
+                        <thead>
                             <tr>
-                                <td>'.$value['timestamp'].'</td>
-                                <td>'.$value['error_code'].'</td>
-                                <td>'.$value['maintenance_log'].'</td>
+                                <th>Timestamp</th>
+                                <th>Error Code</th>
+                                <th>Maintenance Log</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <?php
+                            $params = array($machine);
+
+                            $sql = "SELECT * FROM MachineLogs  WHERE machine_name = ? AND error_code IS NOT NULL AND error_code != '' ORDER BY timestamp desc";
+
+                            $statement = mysqli_stmt_init($c);
+                            mysqli_stmt_prepare($statement, $sql);
+
+                            mysqli_stmt_bind_param($statement, 's', ...$params);
+                            mysqli_stmt_execute($statement);
+
+                            if ($result = mysqli_stmt_get_result($statement)) {
+                                if (mysqli_num_rows($result) >= 1) {
+                                    while ($value = mysqli_fetch_assoc($result)) {
+                                        echo '
+                            <tr>
+                                <td>' . $value['timestamp'] . '</td>
+                                <td>' . $value['error_code'] . '</td>
+                                <td>' . $value['maintenance_log'] . '</td>
                             ';
-                        }
-                        mysqli_free_result($result);
-                    }
-                }
+                                    }
+                                    mysqli_free_result($result);
+                                }
+                            }
 
 
-                ?>
-                    </tbody>
+                            ?>
+                        </tbody>
 
-                </table>
+                    </table>
 
                 </div>
-                <div id = 'machine-view-job-table'>
+                <div id='machine-view-job-table'>
 
 
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Job ID</th>
-                        <th>Description</th>
-                        <th>Assigned Operator</th>
-                    </tr>
-                    </thead>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Job ID</th>
+                                <th>Description</th>
+                                <th>Assigned Operator</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
+                        <tbody>
 
-                    </tbody>
+                            <?php
+                            $params = array($machine);
 
-            </table>
+                            $sql = "SELECT * FROM jobs_assign  WHERE machine = ?";
+
+                            $statement = mysqli_stmt_init($c);
+                            mysqli_stmt_prepare($statement, $sql);
+
+                            mysqli_stmt_bind_param($statement, 's', ...$params);
+                            mysqli_stmt_execute($statement);
+
+                            if ($result = mysqli_stmt_get_result($statement)) {
+                                if (mysqli_num_rows($result) >= 1) {
+                                    while ($value = mysqli_fetch_assoc($result)) {
+                                        echo '
+                            <tr>
+                                <td>' . $value['job_id'] . '</td>
+                                <td>' . $value['job_desc'] . '</td>
+                                <td>' . $value['assigned_to'] . '</td>
+                            ';
+                                    }
+                                    mysqli_free_result($result);
+                                }
+                            }
+
+
+                            ?>
+
+                        </tbody>
+
+
+
+                    </table>
                 </div>
-                </div>
+            </div>
 
 
 
