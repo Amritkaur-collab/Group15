@@ -66,7 +66,7 @@
                     <h2>Jobs to be Assigned</h2>
 
                     <label for="job_id">Select a Job ID for assignment tasks:</label>
-                    <select id="job-id" name="job_id"><br><br> 
+                    <select id="job-id" name="job_id" required><br><br> 
                         <?php
                             require_once "inc/dbconn.inc.php";
                         
@@ -87,11 +87,11 @@
                     
                      <br>
                      <label for="job_desc">Enter a Job Description:</label>
-                     <input type="text" name="job_desc" id="job_desc">
+                     <input type="text" name="job_desc" id="job_desc" required>
                     
                      <br>
                      <label for="machines">Assign Machine:</label>
-                     <select id="machine_name" name="machine_name"><br><br> 
+                     <select id="machine_name" name="machine_name" required><br><br> 
                      <option value=""></option>
                         <?php
                             $sql = "SELECT machine_name FROM machines;";
@@ -111,11 +111,11 @@
                         
                     <br> 
                     <label for="role">Enter Role:</label>
-                    <input type="text" name="role" id="role">
+                    <input type="text" name="role" id="role" required>
                         
                     <br>
                     <label for="operator">Assign Operator:</label>
-                    <select id="operator" name="operator"><br><br> 
+                    <select id="operator" name="operator" required><br><br> 
                     <option value=""></option>
                     <?php
                         $sql = "SELECT CONCAT(first_name, ' ', last_name) as operator FROM users WHERE user_type ='Production Operator';";
@@ -135,7 +135,8 @@
                         mysqli_close($conn);   
                     ?>
                     </select>  
-                                     
+               
+
                         
                     <button class="submit-button" type="submit">Submit</button>
                 </div> 

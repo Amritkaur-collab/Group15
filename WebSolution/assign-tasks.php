@@ -1,6 +1,8 @@
+
 <?php
     if(isset($_POST["job_id"])){
         $job_id = $_POST["job_id"];
+
         $job_desc = $_POST["job_desc"];
         $machine = $_POST["machine_name"];
         $role = $_POST["role"];
