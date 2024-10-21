@@ -1,0 +1,2 @@
+1. Use db.sql to setup tables and inital entries.
+2. Enter machine_logs.sql as a file using the import function under websolution in PHPmyAdmin. 

@@ -1,5 +1,4 @@
-INSERT INTO Machines (machine_name, machine_location, date_acquired, serial_number) 
-VALUES 
+INSERT INTO Machines (machine_name, machine_location, date_acquired, serial_number) VALUES 
 ('CNC Machine', NULL, NULL, NULL),
 ('3D Printer', NULL, NULL, NULL),
 ('Industrial Robot', NULL, NULL, NULL),

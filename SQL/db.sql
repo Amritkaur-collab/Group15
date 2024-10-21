@@ -53,7 +53,15 @@ CREATE TABLE jobs (
         ON UPDATE CASCADE
 );
 
-
+CREATE TABLE jobs_assign
+(
+    job_id CHAR(20),
+    machine CHAR(30),
+    job_desc CHAR(250),
+    role CHAR(100),
+    assigned_to CHAR(20),
+    PRIMARY KEY (job_id)
+);
 
 CREATE TABLE JobNotes (
     timestamp              TIMESTAMP NOT NULL,
@@ -71,7 +79,6 @@ CREATE TABLE TaskNotes (
     employee_name       VARCHAR(100) NOT NULL
 );
 
-
 CREATE TABLE Users
 (
     user_id  CHAR(20),
@@ -81,10 +88,28 @@ CREATE TABLE Users
     user_type  CHAR(30),
     PRIMARY KEY (user_id)
 );
+
+CREATE user IF NOT EXISTS dbadmin@localhost;
+GRANT all privileges ON Websolution.* TO dbadmin@localhost;
+
+-- Data (Except Machine Logs) --
+
 INSERT INTO Users VALUES('benn8654', '$2a$12$wM1dSKScyLcqh6YXWcpvKOJoHvtBJVjx1ZEZLt.y4pS2RZhiyOtIW', 'Penelope', 'Bennett', 'Administrator');
 INSERT INTO Users VALUES('moor5043', '$2a$12$I8l1K/bS8CRldL9q6ZFZZeqUUdUC3cJSBYVtqSFI6g5AW0YVhve7O', 'John', 'Moore', 'Factory Manager');
 INSERT INTO Users VALUES('john2376', '$2a$12$/WCUUGSk4lO.fStHh6S2euiuR4jEUMl70OmyvtvpJDS2zdmchHAI6', 'David', 'Johnson', 'Production Operator');
 INSERT INTO Users VALUES('lawr0842', '$2a$12$cm.nRRSZUvelALg0vBg16OYqsn.CMVNmMsJRyPS5dWMVj.zbdmQAK', 'Kaitlyn', 'Lawrence', 'Auditor');
+
+INSERT INTO Machines (machine_name, machine_location, date_acquired, serial_number) VALUES 
+('CNC Machine', NULL, NULL, NULL),
+('3D Printer', NULL, NULL, NULL),
+('Industrial Robot', NULL, NULL, NULL),
+('Automated Guided Vehicle (AGV)', NULL, NULL, NULL),
+('Smart Conveyor System', NULL, NULL, NULL),
+('IoT Sensor Hub', NULL, NULL, NULL),
+('Predictive Maintenance System', NULL, NULL, NULL),
+('Automated Assembly Line', NULL, NULL, NULL),
+('Quality Control Scanner', NULL, NULL, NULL),
+('Energy Management System', NULL, NULL, NULL);
 
 INSERT INTO MachineNotes (timestamp, machine_name, operational_status, user_id, user_name, content) VALUES
 ('2024-10-01 10:00:00', '3D Printer', 'active', '101', 'Alice Smith', 'Routine maintenance performed.'),
@@ -107,20 +132,12 @@ INSERT INTO TaskNotes (timestamp, machine_name, task_note, employee_id, employee
 ('2024-10-04 13:15:00', 'Automated Guided Vehicle', 'Updated navigation software.', 104, 'David Wilson'),
 ('2024-10-05 08:30:00', 'Smart Conveyor System', 'Cleared blockage in the feed area.', 105, 'Eve Davis');
 
-
-CREATE TABLE jobs_assign
-(
-    job_id CHAR(20),
-    machine CHAR(30),
-    job_desc CHAR(250),
-    role CHAR(100),
-    assigned_to CHAR(20),
-    PRIMARY KEY (job_id)
-);
-
-CREATE user IF NOT EXISTS dbadmin@localhost;
-GRANT all privileges ON Websolution.* TO dbadmin@localhost;
-
--- Data --
+INSERT INTO jobs_assign (job_id, machine, job_desc, assigned_to) VALUES 
+('JB2024-10-01', NULL, NULL, NULL),
+('JB2024-10-02', NULL, NULL, NULL),
+('JB2024-10-03', NULL, NULL, NULL),
+('JB2024-10-04', NULL, NULL, NULL),
+('JB2024-10-05', NULL, NULL, NULL),
+('JB2024-10-06', NULL, NULL, NULL);
 
 
