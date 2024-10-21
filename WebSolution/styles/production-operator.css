@@ -33,6 +33,7 @@
     display: inline-block;
     margin: 1px;
     background-color: var(--inner-content-color);
+    border-radius: 5px; 
 }
 
 #filters h2 {
@@ -150,6 +151,7 @@ input {
     margin: 1px; /* Moves the box higher */
     background-color: var(--inner-content-color);
     box-sizing: border-box;
+    border-radius: 5px; 
 }
 
 

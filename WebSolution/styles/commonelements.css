@@ -9,7 +9,7 @@
     --user-color: #35393C;
 
     --button: rgb(255, 255, 255);
-    --button-hover: rgb(240, 240, 240);
+    --button-hover: rgba(240, 240, 240, 0.856);
     --button-active: rgb(189, 189, 189);
 
 
@@ -155,11 +155,12 @@ footer
     background-position: center;
     position: relative;
     top: 25%;
+    background-color: var(--button);
 }
 
 #db-sign-out:hover
 {
-    background-color: lightgrey;
+    background-color: var(--button-hover);
 }
 
 /* Side Bar */
