@@ -1,11 +1,4 @@
-<div id = 'dbsidebar'>
-    <style>
-        button {
-            cursor: pointer;
-        }
-    </style>
 
-        
 <div id='dbsidebar'>
     <a href="home.php"><button id='dbsidebar-home' class='sidebar-button'></button></a><br />
 

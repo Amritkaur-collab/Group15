@@ -5,7 +5,12 @@
 }
 
 .admin {
-    width: auto;
+    border: 1px black solid;
+    margin: 1px;
+    margin-top: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;

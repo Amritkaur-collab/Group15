@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Ryan James">
     <title>Administrator Home Page</title>
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/commonelements.css" />
     <link rel="stylesheet" href="styles/adminstyle.css">
     <script src="scripts/column-sorting.js"></script>
     <?php require_once "auth/sessioncheck.php"; ?>
@@ -19,6 +19,8 @@
     <div id = "pagetitle">
         <h1>Administrator View</h1>
     </div>
+
+    <div id = "db-content">
 
     <div class="admin">
         
@@ -88,6 +90,8 @@
             </table>
         </div>
 
+        
+
         <div class="footer">
             <div class="active-users">
                 <span>Active Users</span>
@@ -95,6 +99,7 @@
             </div>
         </div>
 
+    </div>
     </div>
 
 </body>

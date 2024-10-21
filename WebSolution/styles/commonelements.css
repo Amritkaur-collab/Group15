@@ -231,6 +231,12 @@ footer
 {
     background-image: url("../images/dashboard/sidebar/create-user.svg");
 }
+#dbsidebar-admin
+{
+    background-image: url("../images/dashboard/sidebar/admin.svg");
+    background-position: center; 
+    background-size: 85px 85px;
+}
 
 /* CSS for date selection window */
 #dtswindow 
