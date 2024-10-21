@@ -120,14 +120,7 @@ $databaseLogs = $result->fetch_all(MYSQLI_ASSOC);
             color: white;
         }
     </style>    
-    <script>
-        function setStatusColor() {
-            var select = document.getElementById("status");
-            var selectedOption = select.options[select.selectedIndex];
-            select.className = ''; 
-            select.classList.add(selectedOption.className);
-        }
-    </script>
+    <script src="../WebSolution/scripts/po_script.js"></script>
 </head>
 <body>
     <?php require_once "../WebSolution/inc/dbsidebar.inc.php"; ?>

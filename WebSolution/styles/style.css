@@ -628,7 +628,44 @@ footer
     width: 100%;
     border: 1px solid black;
 }
+.status-active {
+    background-color: green;
+    color: white;
+}
 
+.status-inactive {
+    background-color: red;
+    color: white;
+}
+
+.status-maintenance {
+    background-color: yellow;
+    color: black;
+}
+
+.status-idle {
+    background-color: black;
+    color: white;
+}
+.status-progress {
+    background-color: yellow;
+    color: black;
+}
+
+.status-waiting {
+    background-color: red;
+    color: white;
+}
+
+.status-completed {
+    background-color: green;
+    color: white;
+}
+
+.status-hold {
+    background-color: black;
+    color: white;
+}
 label {
     float: left;
     text-align: center;
