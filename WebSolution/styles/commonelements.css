@@ -1,0 +1,330 @@
+:root
+{
+    --background-color: #35393C;
+    --title-color: #484e52;
+    --header-text-color:#FBFCFD;
+    --header-color: #FF6843;
+    --content-color: #e0e0e0;
+    --inner-content-color: #FBFCFD;
+    --user-color: #35393C;
+
+    --button: rgb(255, 255, 255);
+    --button-hover: rgb(240, 240, 240);
+    --button-active: rgb(189, 189, 189);
+
+
+    --footer-color: #484e52;
+    --footer-text-color: #FBFCFD;
+
+    --user-text: #FBFCFD;
+    --title-text-color: #FBFCFD;
+    --text-color: #35393C;
+}
+
+
+
+/* General */
+
+body
+{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+#db-content
+{
+    display: flex;
+    max-height: 80vh;
+    min-height: 80vh;
+    
+}
+
+#pagetitle
+{
+    height: 40px;
+    display: flex;
+}
+
+#pagetitle h1
+{
+    width: 100%;
+    border: 1px black solid;
+    text-align: center;
+    display: block;
+    margin: 1px;
+    margin-bottom: 0px;
+    border-radius: 5px;  
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    color: var(--title-text-color);
+    background-color: var(--title-color);
+}
+
+footer
+{
+    height: 5.4vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    border-top: 1px solid black;
+    background-color: var(--footer-color);
+    color: var(--footer-text-color);
+}
+
+/* Header */
+#dbheader
+{
+    text-align: left;
+    border-bottom: 1px solid black;
+    border-top: none;
+    height: 75px;
+    width: 100%;
+    color: var(--header-text-color);
+    background-color: var(--header-color);
+    text-shadow: 1px 1px #000000;
+}
+#dbheader-info
+{
+    display: flex;
+}
+#dbheader-icon
+{
+    margin-left: 10px;
+    max-width: 75px;
+    min-width: 75px;
+    max-height: 75px;
+    min-height: 75px;
+    border-radius: 5px;  
+    border: #000000 1px solid;
+    box-sizing: border-box;
+}
+#dbheader-info p
+{
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+#dbheader-user
+{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    border: 1px solid black;
+    height: 70px;
+    margin: 1px;
+    border-radius: 5px;  
+    background-color: var(--user-color);
+}
+
+#dbheader-user-text
+{
+    margin: 1px;
+    transform: translate(0%, -5px);
+    color: var(--user-text);
+    padding-left: 10px;
+}
+
+#dbheader-user-icon
+{
+    margin: 1px;
+    margin-left: 10px;
+    border: 1px solid black;
+    width: 65px;
+    height: 65px;
+    border-radius: 65px;  
+    background-color: var(--user-text);
+}
+
+#db-sign-out
+{
+    margin: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+    background-image: url("../images/dashboard/header/signout.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    top: 25%;
+}
+
+#db-sign-out:hover
+{
+    background-color: lightgrey;
+}
+
+/* Side Bar */
+#dbsidebar
+{
+    float: left;
+    height: 80vh;
+}
+
+.sidebar-button
+{
+    margin: 1px;
+    height: 75px;
+    width: 75px;
+    background-color: var(--button);
+    border: 1px grey solid;
+    background-position: center; 
+    background-size: 75px;
+    border-radius: 5px;  
+}
+.sidebar-button:hover
+{
+    background-color: var(--button-hover);
+}
+#dbsidebar a.current button
+{
+    background-color: var(--button-active);
+    border: 2px black solid;
+}
+
+#dbsidebar-home
+{
+    background-image: url("../images/dashboard/sidebar/home.svg");
+}
+
+#dbsidebar-search
+{
+    background-image: url("../images/dashboard/sidebar/search.svg");
+}
+
+#dbsidebar-assign-jobs
+{
+    background-image: url("../images/dashboard/sidebar/assign-job.svg");
+}
+
+#dbsidebar-manage-machines
+{
+    background-image: url("../images/dashboard/sidebar/machine-manage.svg");
+}
+
+#dbsidebar-manage-jobs
+{
+    background-image: url("../images/dashboard/sidebar/job-manage.svg");
+}
+
+/* CSS for date selection window */
+#dtswindow 
+{
+    margin: 0px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 350px;
+}
+#dts-header
+{
+    padding: 0px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin: 0px;
+    border: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+    display:inline-block;
+}
+#ym-label
+{
+    margin: 0px;
+    text-align: center;
+}
+#prev
+{
+    margin: 0px;
+    position: absolute;
+    top: 0px;
+    left: 15%;
+}
+#next
+{
+    margin: 0px;
+    position: absolute;
+    top: 0px;
+    right: 15%;
+}
+#close
+{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+#days-table td
+{
+    padding: 0;
+    height: 30px;
+    width: 30px;
+}
+#days-table button
+{
+    width: 100%;
+    height: 100%;
+}
+#time-input
+{
+    width: 150px;
+    float: left;
+    position: fixed;
+    bottom: 15%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, 0);
+}
+
+#hour
+{
+    float: none;
+    width: 40px;
+    height: 20px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+#minutes
+{
+    float: none;
+    width: 40px;
+    height: 20px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+#set
+{
+    position: fixed;
+    bottom: 0%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.machine-status-active
+{
+    color: green;
+}
+
+.machine-status-idle
+{
+    color: rgb(255, 166, 0);
+}
+.machine-status-maintenance
+{
+    color: red;
+}

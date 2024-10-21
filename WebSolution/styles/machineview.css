@@ -1,0 +1,92 @@
+#machine-view-window
+{
+    border: 1px solid black;
+    width: 100%;
+    margin: 1px;
+    display: flex;
+    margin-top: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 2px;
+    background-color: var(--content-color);
+}
+
+#machine-view-window h2
+{
+    width: 100px;
+}
+
+.machine-view-graph 
+{
+    display: block;
+    border: 1px solid black;
+    margin: 2px;
+    padding: 1px;
+    padding-right: 3px;
+    width: 600px;
+    position: relative;
+    bottom: 0px;
+    border-radius: 5px;  
+    background-color: var(--inner-content-color);
+}
+.machine-view-graph-column
+{
+    padding-top: 2.9%;
+    display: block;
+    float: left;
+}
+
+.machine-view-graph-column
+{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+.machine-view-table-column
+{
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+
+}
+
+.machine-view-table-column table
+{
+    border-collapse: collapse;
+    width: 100%;
+    background-color: var(--inner-content-color);
+}
+
+.machine-view-table-column thead
+{
+    background-color: rgb(196, 196, 196);
+    position: sticky; 
+    top: 0;
+}
+
+#machine-view-log-table
+{
+    border: 1px solid black;
+    overflow: scroll;
+    overflow-x: hidden;
+    max-height: 60%;
+    margin: 2px;
+}
+
+#machine-view-job-table
+{
+    border: 1px solid black;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 38.5%;
+    margin: 2px;
+}
+
+#machine-view-status
+{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translate(-45%, -10%);
+}

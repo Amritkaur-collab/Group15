@@ -27,6 +27,15 @@ export function drawLineGraph(points, canvasId, color)
     const canvas = document.getElementById(canvasId);
     const ctx = canvas.getContext("2d");
 
+    if(points.length <= 0 || isNaN(points[0][1]))
+    {
+        ctx.fillStyle = 'black';
+        ctx.font = "20px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText("DATA NOT FOUND", canvas.width/2, canvas.height/2);
+        return;
+    }
+
     var scale = lineGraphScale(points);
     var padding_top = 20;
     var padding_bottom = 70;

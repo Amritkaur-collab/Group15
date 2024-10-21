@@ -1,0 +1,174 @@
+#pagetitle
+{
+    height: 40px;
+    display: flex;
+}
+#searchpage
+{
+    border: 1px solid black;
+    display: flex;
+    width: 100%;
+    margin: 1px;
+    margin-top: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 2px;
+    background-color: var(--content-color);
+}
+#filters
+{
+    margin: 1px;
+    width: 15%;
+    padding: 15px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    border: 1px solid black;
+    border-radius: 5px;  
+    background-color: var(--inner-content-color);
+}
+#filters h2
+{
+    text-align: center;
+}
+#filters ul
+{
+    padding:0px;
+}
+#filters li
+{
+    margin: 1px;
+    margin-bottom: 0px;
+    list-style: none;
+    width: 100%;
+    border: 1px solid black;
+    float: right;
+}
+
+#filters h3
+{
+    text-align: center;
+}
+
+.machine-checkbox
+{
+    float: right;
+}
+
+#search-filter-dts
+{
+    border: 1px solid black;
+    display: block;
+    height: 110px;
+    width: 100%;
+
+}
+
+#search-filter-misc
+{
+    height: 50px;
+}
+
+.search-filter input
+{
+    margin: 1px;
+    width: 65%;
+    float: right;
+    height: 100%;
+}
+
+.search-filter label
+{
+    float: left;
+    padding: 1px;
+}
+
+.search-filter button
+{
+    float: right;
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+}
+
+#search-filter-machines
+{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+
+.search-filter 
+{
+    position: relative;
+    border: 1px solid black;
+    float: left;
+    width: 100%;
+}
+
+#machine-list
+{
+    list-style: none;
+    width: 100%;
+    max-height: 300px;
+    min-height: 300px;
+    padding-left: 5px;
+    overflow: scroll;
+    overflow-x: hidden;
+    border: 1px solid black;
+}
+#machine-list li
+{
+    border: 1px solid black;
+    float: left;
+    width: 97%;
+    padding: 1px;
+}
+
+#results-table
+{
+    margin: 1px;
+    width: 100%;
+    float: right;
+    overflow: scroll;
+    overflow-x: hidden;
+    border: 1px solid black;
+    border-radius: 5px;  
+    background-color: var(--inner-content-color);
+
+}
+#results-table table
+{
+    width: 100%;
+    border-collapse: collapse;
+}
+#tb-header
+{
+    border: 1px solid black;
+    background-color: rgb(196, 196, 196);
+    position: sticky; 
+    top: 0;
+}
+#results-table th, td, tr
+{
+    text-align: center;
+    border: 1px solid rgb(117, 117, 117);
+    padding: 5px;
+}
+#results-table #even
+{
+    background-color: rgb(228, 228, 228);
+}
+#results-table #odd
+{
+    background-color: rgb(255, 255, 255);
+}
+
+#submit
+{
+    width: 100%;
+    height: 50px;
+    margin-top: 10%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}

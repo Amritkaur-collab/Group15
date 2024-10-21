@@ -3,11 +3,27 @@ body {
     padding: 0px;
 }
 
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white; /* This keeps the content area white */
+  border-radius: 8px;       /* Smooth rounded edges */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for emphasis */
+  background-color:#35393C;
+}
+
 h1 {
     text-align: center;
     border: 1px solid black;
     font-family: sans-serif;
-
+    max-width: 760px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .machine-form {
@@ -36,32 +52,14 @@ input, select {
   
 button {
     padding: 10px;
-    background-color: #0056b3;
+    background-color: #FF6843;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 4px;
   }
 
-  button:hover {
-    background-color: #00408e;
+  .machine-button:hover {
+    background-color: #f74f25;
   }
 
-.top-left-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: #4CAF50; 
-    color: white; 
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none; 
-    font-size: 16px;
-    border-radius: 5px; 
-    transition: background-color 0.3s ease;
-}
-
-
-.top-left-button:hover {
-    background-color: #45a049; 
-}
