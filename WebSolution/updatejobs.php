@@ -86,6 +86,7 @@ $logs = array_reverse($_SESSION['logs']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Group 15" />
     <title>Smart Manufacturing Dashboard: Update Assigned Jobs</title>
     <link rel="stylesheet" href="../WebSolution/styles/commonelements.css" />
     <link rel="stylesheet" href="../WebSolution/styles/production-operator.css" />
@@ -122,7 +123,7 @@ $logs = array_reverse($_SESSION['logs']);
 <?php require_once "../WebSolution/inc/dbsidebar.inc.php"; ?>
 
     <div id="pagetitle">
-        <h1>Job Assignment</h1>
+        <h1>Jobs</h1>
     </div>
 
     <div id = 'db-content'>

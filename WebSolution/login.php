@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../WebSolution/styles/style.css" />
+    <meta name="author" content="Group 15" />
     <title>Login</title>
 </head>
 

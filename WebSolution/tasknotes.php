@@ -56,6 +56,7 @@ $taskNotes = array_reverse($taskNotes);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Manufacturing Dashboard: Task Notes</title>
+    <meta name="author" content="Group 15" />
     <link rel="stylesheet" href="../WebSolution/styles/commonelements.css" />
     <link rel="stylesheet" href="../WebSolution/styles/production-operator.css" />
     <?php require_once "auth/sessioncheck.php"; ?>
