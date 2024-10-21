@@ -152,7 +152,10 @@ footer
 }
 #dbsidebar-updatejobs{
     background-image: url("../images/dashboard/sidebar/job.png");
+}
 
+#dbsidebar-admin{
+    background-image: url("../images/dashboard/sidebar/admin.svg");
     background-position: center; 
     background-size: 85px 85px;
 }

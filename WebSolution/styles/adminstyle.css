@@ -1,0 +1,90 @@
+.admin * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.admin {
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+    background-color: #f5f5f5;
+}
+
+.admin h1 {
+    font-size: 24px;
+}
+
+.admin .table {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin #waiting-assigned, #in-progress {
+    grid-column: span 1;
+}
+
+.admin #complete {
+    grid-column: span 2;
+}
+
+.admin table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.admin th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.admin th {
+    cursor: pointer;
+}
+
+.admin .icon-box, .submit-box {
+    width: 20px;
+    height: 20px;
+    background-color: #888;
+}
+
+.admin .progress-bar {
+    width: 100px;
+    height: 20px;
+    background-color: #bbb;
+    position: relative;
+}
+
+.admin .footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.admin .active-users {
+    display: flex;
+    align-items: center;
+}
+
+.admin .user-count {
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    border-radius: 50%;
+}
