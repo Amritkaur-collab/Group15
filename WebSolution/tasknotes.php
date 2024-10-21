@@ -1,36 +1,45 @@
 <?php
-// Include the database configuration
-require_once "../WebSolution/inc/dbconn.inc.php"; // Ensure session is started in this file
+require_once "../WebSolution/inc/dbconn.inc.php"; 
 require_once "../WebSolution/auth/sessioncheck.php";
 
-// Initialize logs session variable if not set
 if (!isset($_SESSION['logs'])) {
     $_SESSION['logs'] = [];
 }
 
-// Handle form submission
+$emailSent = false; 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the form inputs
     $machine = filter_input(INPUT_POST, "machine", FILTER_SANITIZE_STRING);
     $taskNote = filter_input(INPUT_POST, "task_note", FILTER_SANITIZE_STRING);
     $employeeId = filter_input(INPUT_POST, "employee_id", FILTER_VALIDATE_INT);
     $employeeName = filter_input(INPUT_POST, "employee_name", FILTER_SANITIZE_STRING);
 
-    // Use a dash if the employee name is empty
     $employeeName = empty($employeeName) ? '-' : $employeeName;
 
-    // Insert new task note into the database
     $stmt = $conn->prepare("INSERT INTO TaskNotes (timestamp, machine_name, task_note, employee_id, employee_name) VALUES (CURRENT_TIMESTAMP, ?, ?, ?, ?)");
     $stmt->bind_param("ssis", $machine, $taskNote, $employeeId, $employeeName);
     $stmt->execute();
     $stmt->close();
 
-    // Prevent form resubmission
-    header("Location: " . $_SERVER['PHP_SELF']);
+    
+    $to = "factorymanager@example.com"; 
+    $subject = "New Task Note Submitted for $machine";
+    $message = "A new task note has been submitted:\n\n"
+        . "Machine: $machine\n"
+        . "Task Note: $taskNote\n"
+        . "Updated By (ID): $employeeId\n"
+        . "Updated By (Name): $employeeName\n"
+        . "Timestamp: " . date("Y-m-d H:i:s") . "\n";
+
+    
+    $mailto = "mailto:$to?subject=" . urlencode($subject) . "&body=" . urlencode($message);
+    $emailSent = true; 
+
+    
+    header("Location: " . $_SERVER['PHP_SELF'] . "?mailto=" . urlencode($mailto));
     exit();
 }
 
-// Retrieve the task notes from the database
 $result = $conn->query("SELECT timestamp, machine_name, task_note, employee_id, employee_name FROM TaskNotes ORDER BY timestamp DESC LIMIT 5");
 
 $taskNotes = [];
@@ -38,7 +47,6 @@ while ($row = $result->fetch_assoc()) {
     $taskNotes[] = $row;
 }
 
-// Reverse the task notes array to show the most recent updates first
 $taskNotes = array_reverse($taskNotes);
 ?>
 
@@ -48,14 +56,14 @@ $taskNotes = array_reverse($taskNotes);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Manufacturing Dashboard: Task Notes</title>
-    <link rel="stylesheet" href="../WebSolution/styles/style.css" /> <!-- Use the same CSS as updatejobs -->
+    <link rel="stylesheet" href="../WebSolution/styles/style.css" /> 
     <?php require_once "auth/sessioncheck.php"; ?>
-    <?php require_once "auth/permissioncheck.php"; requireRole(array('Production Operator')); ?>
+    <?php require_once "auth/permissioncheck.php"; 
+    requireRole(array('Production Operator')); ?>
 </head>
 <body>
-    <?php require_once "../WebSolution/inc/dbheader.inc.php"; ?>
     <?php require_once "../WebSolution/inc/dbsidebar.inc.php"; ?>
-    
+    <?php require_once "../WebSolution/inc/dbheader.inc.php"; ?>
 
     <div id="pagetitle">
         <h1>Task Notes</h1>
@@ -89,12 +97,12 @@ $taskNotes = array_reverse($taskNotes);
                     </li>
 
                     <li>
-                        <label for="employee_id">Updated By (ID):</label>
+                        <label for="employee_id">Written  By (ID):</label>
                         <input type="number" name="employee_id" id="employee_id" required>
                     </li>
 
                     <li>
-                        <label for="employee_name">Updated By (Name):</label>
+                        <label for="employee_name">Written for (Name):</label>
                         <input type="text" name="employee_name" id="employee_name" required>
                     </li>
 
@@ -113,8 +121,8 @@ $taskNotes = array_reverse($taskNotes);
                                 <th>Date and Time</th>
                                 <th>Machine</th>
                                 <th>Task Note</th>
-                                <th>Updated By (ID)</th>
-                                <th>Updated By (Name)</th>
+                                <th>Written By (ID)</th>
+                                <th>Written for (Name)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -139,5 +147,11 @@ $taskNotes = array_reverse($taskNotes);
     <footer>
         <p>@FactorieWorks Co.</p>
     </footer>
+
+    <?php if (isset($_GET['mailto'])): ?>
+        <script>
+            window.open("<?php echo htmlspecialchars($_GET['mailto']); ?>");
+        </script>
+    <?php endif; ?>
 </body>
 </html>
