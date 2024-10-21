@@ -53,8 +53,9 @@ $taskNotes = array_reverse($taskNotes);
     <?php require_once "auth/permissioncheck.php"; requireRole(array('Production Operator')); ?>
 </head>
 <body>
-    <?php require_once "../WebSolution/inc/dbsidebar.inc.php"; ?>
     <?php require_once "../WebSolution/inc/dbheader.inc.php"; ?>
+    <?php require_once "../WebSolution/inc/dbsidebar.inc.php"; ?>
+    
 
     <div id="pagetitle">
         <h1>Task Notes</h1>

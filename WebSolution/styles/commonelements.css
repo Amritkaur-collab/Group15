@@ -214,6 +214,19 @@ footer
 {
     background-image: url("../images/dashboard/sidebar/job-manage.svg");
 }
+#dbsidebar-tasknotes
+{
+    background-image: url("../images/dashboard/sidebar/tasknote.png");
+}
+#dbsidebar-update-machines
+{
+    background-image: url("../images/dashboard/sidebar/machine-manage.svg");
+
+}
+#dbsidebar-update-jobs
+{
+    background-image: url("../images/dashboard/sidebar/job-manage.svg");
+}
 
 /* CSS for date selection window */
 #dtswindow 
