@@ -87,7 +87,8 @@ $logs = array_reverse($_SESSION['logs']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Manufacturing Dashboard: Update Assigned Jobs</title>
-    <link rel="stylesheet" href="../WebSolution/styles/style.css" />
+    <link rel="stylesheet" href="../WebSolution/styles/commonelements.css" />
+    <link rel="stylesheet" href="../WebSolution/styles/production-operator.css" />
     <?php   
         require_once "auth/sessioncheck.php";
         require_once "auth/permissioncheck.php";
@@ -124,8 +125,11 @@ $logs = array_reverse($_SESSION['logs']);
         <h1>Job Assignment</h1>
     </div>
 
+    <div id = 'db-content'>
+
     <div id='updatepage'>
         <form method="POST" action="">
+        <div id = 'updatepage-content'>
             <div id="filters">
                 <h2>Job Update</h2>
                 <ul>
@@ -202,7 +206,9 @@ $logs = array_reverse($_SESSION['logs']);
                     <p>No recent updates.</p>
                 <?php endif; ?>
             </div>
+        </div>
         </form>
+    </div>
     </div>
     <footer>
         <p>@FactorieWorks Co.</p>

@@ -56,7 +56,8 @@ $taskNotes = array_reverse($taskNotes);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Manufacturing Dashboard: Task Notes</title>
-    <link rel="stylesheet" href="../WebSolution/styles/style.css" /> 
+    <link rel="stylesheet" href="../WebSolution/styles/commonelements.css" />
+    <link rel="stylesheet" href="../WebSolution/styles/production-operator.css" />
     <?php require_once "auth/sessioncheck.php"; ?>
     <?php require_once "auth/permissioncheck.php"; 
     requireRole(array('Production Operator')); ?>
@@ -69,8 +70,11 @@ $taskNotes = array_reverse($taskNotes);
         <h1>Task Notes</h1>
     </div>
 
+    <div id = 'db-content'>
+
     <div id='updatepage'>
         <form method="POST" action="">
+            <div id = 'updatepage-content'>
             <div id="filters">
                 <h2>Task Note Update</h2>
                 <ul>
@@ -141,7 +145,9 @@ $taskNotes = array_reverse($taskNotes);
                     <p>No task notes created yet.</p>
                 <?php endif; ?>
             </div>
+            </div>
         </form>
+    </div>
     </div>
 
     <footer>

@@ -92,7 +92,8 @@ $databaseLogs = $result->fetch_all(MYSQLI_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Manufacturing Dashboard: Update Assigned Machines</title>
-    <link rel="stylesheet" href="../WebSolution/styles/style.css" />
+    <link rel="stylesheet" href="../WebSolution/styles/commonelements.css" />
+    <link rel="stylesheet" href="../WebSolution/styles/production-operator.css" />
     <?php   
         require_once "auth/sessioncheck.php";
     ?>
@@ -130,8 +131,11 @@ $databaseLogs = $result->fetch_all(MYSQLI_ASSOC);
         <h1>Machine Status</h1>
     </div>
 
+    <div id = 'db-content'>
+
     <div id='updatepage'>
         <form method="POST" action="">
+        <div id = 'updatepage-content'>
             <div id="filters">
                 <h2>Status Update</h2>
                 <ul>
@@ -227,7 +231,9 @@ $databaseLogs = $result->fetch_all(MYSQLI_ASSOC);
                     <p>No recent updates.</p>
                 <?php endif; ?>
             </div>
+        </div>
         </form>
+    </div>
     </div>
     <footer>
         <p>@FactorieWorks Co.</p>
