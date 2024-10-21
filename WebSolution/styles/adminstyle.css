@@ -27,7 +27,7 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.admin #waiting-assigned, #in-progress {
+.admin #waitingAssigned, #inProgress {
     grid-column: span 1;
 }
 
@@ -87,4 +87,26 @@
     align-items: center;
     margin-left: 10px;
     border-radius: 50%;
+}
+
+.progressBarContainer {
+    position: relative;
+    width: 100%;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    height: 20px;
+    overflow: hidden;
+}
+.progressBarFill {
+    height: 100%;
+    background-color: #4caf50;
+    width: 0%; /* updated by .js script */
+    text-align: center;
+    color: white;
+}
+.progressText {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
 }
