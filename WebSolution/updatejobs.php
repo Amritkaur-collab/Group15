@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($count > 0) {
             
-            $stmt = $conn->prepare("UPDATE JobNotes SET operational_status = ?, user_id = ?, user_name = ?, content = ? WHERE job_description = ?");
+            $stmt = $conn->prepare("UPDATE JobNotes SET operational_status = ?, employee_id = ?, employee_name = ?, additional_details = ? WHERE job_description = ?");
             $stmt->bind_param("sisss", $status, $employeeId, $employeeName, $log, $jobDescription);
 
             if ($stmt->execute()) {
