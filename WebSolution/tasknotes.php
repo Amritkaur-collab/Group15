@@ -62,8 +62,8 @@ $taskNotes = array_reverse($taskNotes);
     requireRole(array('Production Operator')); ?>
 </head>
 <body>
-    <?php require_once "../WebSolution/inc/dbsidebar.inc.php"; ?>
     <?php require_once "../WebSolution/inc/dbheader.inc.php"; ?>
+    <?php require_once "../WebSolution/inc/dbsidebar.inc.php"; ?>
 
     <div id="pagetitle">
         <h1>Task Notes</h1>

@@ -117,8 +117,8 @@ $logs = array_reverse($_SESSION['logs']);
     <script src="../WebSolution/scripts/po_script.js"></script>
 </head>
 <body>
-    <?php require_once "../WebSolution/inc/dbsidebar.inc.php"; ?>
-    <?php require_once "../WebSolution/inc/dbheader.inc.php"; ?>
+<?php require_once "../WebSolution/inc/dbheader.inc.php"; ?>
+<?php require_once "../WebSolution/inc/dbsidebar.inc.php"; ?>
 
     <div id="pagetitle">
         <h1>Job Assignment</h1>
