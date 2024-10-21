@@ -24,6 +24,9 @@
     if (requireRoleBtn(array('Factory Manager'))) {
         echo "<a href='Add-Update-Remove-Jobs.php'><button id = 'dbsidebar-manage-jobs' class = 'sidebar-button'></button></a><br/>";
     }
+    if (requireRoleBtn(array('Administrator'))) {
+        echo "<a href='signup.php'><button id = 'dbsidebar-createuser' class = 'sidebar-button'></button></a><br/>";
+    }
     ?>
 
 </div>

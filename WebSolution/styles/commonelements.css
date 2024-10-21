@@ -227,6 +227,10 @@ footer
 {
     background-image: url("../images/dashboard/sidebar/job-manage.svg");
 }
+#dbsidebar-createuser
+{
+    background-image: url("../images/dashboard/sidebar/create-user.svg");
+}
 
 /* CSS for date selection window */
 #dtswindow 

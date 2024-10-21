@@ -1,0 +1,33 @@
+#db-signup
+{
+    display: flex;
+    border: 1px solid black;
+    width: 100%;
+    margin: 1px;
+    margin-top: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 2px;
+    background-color: var(--content-color);
+}
+
+form
+{
+    position: relative;
+    top: 15px;
+    left: 50%;
+    transform: translate(-50%);
+    display: inline-flex;
+    font-weight: bold;
+}
+
+form input, form select
+{
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.submit-btn
+{
+    font-weight: bold;
+}

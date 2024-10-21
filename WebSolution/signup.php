@@ -7,32 +7,46 @@ require_once "inc/dbconn.inc.php"; // Include database connection
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Page</title>
-    <link rel="stylesheet" href="./styles/loginstyle.css">
+    <title>Create User</title>
+    <link rel="stylesheet" href="./styles/commonelements.css">
+    <link rel="stylesheet" href="./styles/createuser.css">
+    <?php require_once "auth/sessioncheck.php"; ?>
+    <?php require_once "auth/permissioncheck.php";
+    requireRole(array('Administrator'));
+    ?>
 </head>
 <body>
-    <h1>Sign Up Page</h1>
 
-    <div class="centred-form">
+    <?php require_once "inc/dbheader.inc.php"; ?>
+    <?php require_once "inc/dbsidebar.inc.php"; ?>
+
+
+    <div id = "pagetitle">
+        <h1>Create New User</h1>
+    </div>
+
+    <div id="db-content">
+
+    <div id = 'db-signup'>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
             <div class="form-row">
-                <label class="form-label">UserID</label>
+                <label class="form-label">UserID</label><br/>
                 <input class="form-input" type="text" name="user_id" pattern="[A-Za-z0-9]+" title="UserID must be alphanumeric" required>
             </div>
             <div class="form-row">
-                <label class="form-label">First Name</label>
+                <label class="form-label">First Name</label><br/>
                 <input class="form-input" type="text" name="first_name" required>
             </div>
             <div class="form-row">
-                <label class="form-label">Last Name</label>
+                <label class="form-label">Last Name</label><br/>
                 <input class="form-input" type="text" name="last_name" required>
             </div>
             <div class="form-row">
-                <label class="form-label">Password</label>
+                <label class="form-label">Password</label><br/>
                 <input class="form-input" type="password" name="password" required>
             </div>
             <div class="form-row">
-                <label class="form-label">Role</label>
+                <label class="form-label">Role</label><br/>
                 <select class="form-input" name="user_type" required>
                     <option value="">Select...</option>
                     <option value="Administrator">Administrator</option>
@@ -43,6 +57,7 @@ require_once "inc/dbconn.inc.php"; // Include database connection
             </div>
             
             <div class="centred-btn-container">
+            <br/>
                 <input class="submit-btn" type="submit" name="submit" value="Register">
             </div>
         </form>
@@ -59,9 +74,9 @@ require_once "inc/dbconn.inc.php"; // Include database connection
 
         // Check if inputs are empty
         if (empty($userID) || empty($firstName) || empty($lastName) || empty($password) || empty($userRole)) {
-            echo "<p style='text-align: center; margin-top: 10px;'>All fields are required.</p>";
+            echo "<script>alert('All fields are required.')";
         } elseif ($userRole === "") {
-            echo "<p style='text-align: center; margin-top: 10px;'>Please select a valid role.</p>";
+            echo "<script>alert('Please select a valid role.')";
         } else {
             // Check if user already exists
             $sql = "SELECT * FROM users WHERE user_id = '$userID';";
@@ -78,7 +93,7 @@ require_once "inc/dbconn.inc.php"; // Include database connection
                         VALUES ('$userID', '$firstName', '$lastName', '$hash_password', '$userRole');";
                 
                 if (mysqli_query($conn, $sql)) {
-                    echo "<h3 style='text-align: center; margin-top: 10px;'>Thank you $firstName. Registration complete.</h3>";
+                    echo "<script>alert('Registration complete for $firstName $lastName - $userID ($userRole).')</script>";
                 } else {
                     echo "<script>alert('Registration failed: " . mysqli_error($conn) . "');</script>";
                 }
@@ -86,8 +101,12 @@ require_once "inc/dbconn.inc.php"; // Include database connection
         }
     }
 
-    // Close the database connection
-    mysqli_close($conn);
+    
+
+
     ?>
+
+<div id="db-content">
+<?php require_once "inc/footer.inc.php"; ?>
 </body>
 </html>
